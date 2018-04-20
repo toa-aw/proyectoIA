@@ -2,123 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8fcb909-7767-44fa-a732-3def071a7e5b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcommon_1_0_16.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jfreechart_1_0_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataSets/DataSet1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jcommon-1.0.16.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jfreechart-1.0.13.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/ButtonDataSet_actionAdapter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/ButtonExperiments_actionAdapter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/ButtonRunExperiments_actionAdapter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/ButtonRun_actionAdapter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/ButtonStop_actionAdapter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/IntegerTextField_KeyAdapter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/JComboBoxSelectionMethods_ActionAdapter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/Main$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/MainFrame$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/MainFrame$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/MainFrame.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/PanelAtributesValue.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/PanelParameters.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/PanelSimulation$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/PanelSimulation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/PanelTextArea.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/gui/SimulationPanel_jButtonSimulate_actionAdapter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/Action.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/Cell.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/Environment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/EnvironmentListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/Food.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/Perception.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/SnakeAgent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/SnakeExperimentsFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/SnakeIndividual.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/SnakeProblem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/GAEvent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/GAListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/GeneticAlgorithm.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/Individual.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/Population.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/Problem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/RealVectorIndividual.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/experiments/Experiment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/experiments/ExperimentEvent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/experiments/ExperimentListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/experiments/ExperimentsFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/experiments/Parameter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/geneticOperators/GeneticOperator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/geneticOperators/Mutation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/geneticOperators/MutationMUTATION_NAME.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/geneticOperators/Recombination.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/geneticOperators/RecombinationOneCut.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/geneticOperators/RecombinationTwoCuts.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/geneticOperators/RecombinationUniform.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/selectionMethods/RouletteWheel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/selectionMethods/SelectionMethod.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/selectionMethods/Tournament.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/statistics/StatisticBestAverage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/statistics/StatisticBestInRun.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/utils/FileOperations.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/ga/utils/Maths.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAI/nn/SnakeAIAgent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeAdhoc/SnakeAdhocAgent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SnakeAI/snake/snakeRandom/SnakeRandomAgent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/PanelAtributesValue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/PanelParameters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/PanelSimulation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/Action.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/Cell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/Environment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/EnvironmentListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/Food.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/Perception.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/SnakeAgent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/SnakeExperimentsFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/SnakeIndividual.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/SnakeProblem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/GAEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/GAListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/GeneticAlgorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/Individual.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/Population.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/Problem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/RealVectorIndividual.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/experiments/Experiment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/experiments/ExperimentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/experiments/ExperimentListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/experiments/ExperimentsFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/experiments/Parameter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/geneticOperators/GeneticOperator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/geneticOperators/Mutation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/geneticOperators/MutationMUTATION_NAME.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/geneticOperators/Recombination.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/geneticOperators/RecombinationOneCut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/geneticOperators/RecombinationTwoCuts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/geneticOperators/RecombinationUniform.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/selectionMethods/RouletteWheel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/selectionMethods/SelectionMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/selectionMethods/Tournament.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/statistics/StatisticBestAverage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/statistics/StatisticBestInRun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/utils/FileOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/ga/utils/Maths.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAI/nn/SnakeAIAgent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeAdhoc/SnakeAdhocAgent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/snake/snakeRandom/SnakeRandomAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snake/Perception.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/snake/Perception.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -136,12 +21,74 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="SnakeAIAgent.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/snake/snakeAI/nn/SnakeAIAgent.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Action.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/snake/Action.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="68">
+              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Food.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/snake/Food.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="17" />
+              <folding>
+                <element signature="e#283#284#0" expanded="true" />
+                <element signature="e#311#312#0" expanded="true" />
+                <element signature="e#340#341#0" expanded="true" />
+                <element signature="e#367#368#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SnakeAgent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/snake/SnakeAgent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-236">
+              <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+              <folding>
+                <element signature="e#1037#1038#0" expanded="true" />
+                <element signature="e#1065#1066#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Perception.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/snake/Perception.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+              <folding>
+                <element signature="e#298#299#0" expanded="true" />
+                <element signature="e#322#323#0" expanded="true" />
+                <element signature="e#348#349#0" expanded="true" />
+                <element signature="e#372#373#0" expanded="true" />
+                <element signature="e#398#399#0" expanded="true" />
+                <element signature="e#422#423#0" expanded="true" />
+                <element signature="e#448#449#0" expanded="true" />
+                <element signature="e#472#473#0" expanded="true" />
+                <element signature="e#501#502#0" expanded="true" />
+                <element signature="e#528#529#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SnakeRandomAgent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/snake/snakeRandom/SnakeRandomAgent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="e#181#182#0" expanded="true" />
+                <element signature="e#215#216#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -189,7 +136,6 @@
         <option value="$PROJECT_DIR$/src/snake/snakeAI/nn/AIAgent.java" />
         <option value="$PROJECT_DIR$/src/snake/snakeAI/ga/geneticOperators/MutationMUTATION_NAME.java" />
         <option value="$PROJECT_DIR$/src/snake/Agent.java" />
-        <option value="$PROJECT_DIR$/src/snake/Perception.java" />
         <option value="$PROJECT_DIR$/src/snake/SnakeAgent.java" />
         <option value="$PROJECT_DIR$/src/snake/Cell.java" />
         <option value="$PROJECT_DIR$/src/snake/Food.java" />
@@ -205,6 +151,7 @@
         <option value="$PROJECT_DIR$/src/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/snake/Environment.java" />
         <option value="$PROJECT_DIR$/src/snake/snakeAI/nn/SnakeAIAgent.java" />
+        <option value="$PROJECT_DIR$/src/snake/Perception.java" />
       </list>
     </option>
   </component>
@@ -215,7 +162,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+    <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -225,7 +172,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane">
         <subPane>
@@ -243,27 +189,27 @@
               <item name="SnakeAI" type="58d84e3e:PackageViewProjectNode" />
               <item name="SnakeAI" type="616d4139:PackageViewModuleNode" />
               <item name="snake" type="1f31426a:PackageElementNode" />
-              <item name="snakeAI" type="1f31426a:PackageElementNode" />
+              <item name="snakeAdhoc" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="SnakeAI" type="58d84e3e:PackageViewProjectNode" />
               <item name="SnakeAI" type="616d4139:PackageViewModuleNode" />
               <item name="snake" type="1f31426a:PackageElementNode" />
-              <item name="snakeAI" type="1f31426a:PackageElementNode" />
-              <item name="nn" type="1f31426a:PackageElementNode" />
+              <item name="snakeRandom" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="main&#9;FILE&#9;file://D:/TAW_2161611_17-18/Inteligencia Artificial/Proyecto/SnakeAI/src/gui/Main.java&#10;jframe&#9;PSI&#9;JAVA://javax.swing.JFrame" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Ficha 1/ReactiveAgent_2018" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -677,7 +623,8 @@
       <workItem from="1523898492411" duration="128000" />
       <workItem from="1523980335117" duration="288000" />
       <workItem from="1523980753272" duration="156000" />
-      <workItem from="1523982895636" duration="936000" />
+      <workItem from="1523982895636" duration="1293000" />
+      <workItem from="1524219161605" duration="1323000" />
     </task>
     <task id="LOCAL-00001" summary="Base del proyecto IA.">
       <created>1523887794520</created>
@@ -686,11 +633,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523887794520</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Base del proyecto IA.">
+      <created>1523984010783</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1523984010783</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13071000" />
+    <option name="totallyTimeSpent" value="14751000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -702,11 +656,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.1756906" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32852387" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -714,11 +669,11 @@
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32852387" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.32925683" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.33183858" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3307436" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6970547" visible="true" weight="0.25746268" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6970547" visible="true" weight="0.35667396" />
       <window_info anchor="right" id="Database" order="8" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -726,7 +681,6 @@
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="5" sideWeight="0.30294532" side_tool="true" weight="0.24124514" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32925683" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info id="Nl-Palette" order="6" />
@@ -778,13 +732,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2771">
-          <caret line="187" column="44" selection-start-line="187" selection-start-column="44" selection-end-line="187" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/PanelSimulation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -999,13 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/snake/Food.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/snake/EnvironmentListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -1013,24 +953,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/snake/Action.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/snake/snakeAI/SnakeIndividual.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/snake/Perception.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1069,20 +995,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/snake/SnakeAgent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-87">
-          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/snake/snakeRandom/SnakeRandomAgent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/snake/snakeAdhoc/SnakeAdhocAgent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1104,10 +1016,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/snake/snakeAI/ga/experiments/Parameter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#379#380#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#453#454#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/snake/snakeAI/nn/SnakeAIAgent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="612">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/snake/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/snake/snakeRandom/SnakeRandomAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#181#182#0" expanded="true" />
+            <element signature="e#215#216#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/snake/SnakeAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-236">
+          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+          <folding>
+            <element signature="e#1037#1038#0" expanded="true" />
+            <element signature="e#1065#1066#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/snake/Perception.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="e#298#299#0" expanded="true" />
+            <element signature="e#322#323#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#372#373#0" expanded="true" />
+            <element signature="e#398#399#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#472#473#0" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#528#529#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/snake/Food.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="e#283#284#0" expanded="true" />
+            <element signature="e#311#312#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
