@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Environment {
 
-    public Random random;
+    public static Random random;
     private final Cell[][] grid;
     private final List<SnakeAgent> agents;
     private Food food;
@@ -37,6 +37,8 @@ public class Environment {
 
         placeAgents();
         placeFood();
+
+        //TODO
     }
 
     // TODO MODIFY TO PLACE ADHOC OR AI SNAKE AGENTS
