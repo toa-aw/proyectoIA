@@ -1,8 +1,6 @@
 package snake;
 
-import snake.snakeAI.nn.SnakeAIAgent;
 import snake.snakeAdhoc.SnakeAdhocAgent;
-import snake.snakeRandom.SnakeRandomAgent;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -36,18 +34,20 @@ public class Environment {
 
     public void initialize(int seed) {
         random.setSeed(seed);
-
         placeAgents();
         placeFood();
-
-        //TODO
+        for (SnakeAgent agent: agents) {
+            if(agent.getCell() == food.getCell()) {
+                addTail(agent);
+            }
+        }
     }
 
     // TODO MODIFY TO PLACE ADHOC OR AI SNAKE AGENTS
     private void placeAgents() {
         Cell agentCell = grid[random.nextInt(grid.length)][random.nextInt(grid.length)];
-        SnakeRandomAgent snakeRandomAgent = new SnakeRandomAgent(agentCell, Color.GREEN);
-        agents.add(snakeRandomAgent);
+//        SnakeRandomAgent snakeRandomAgent = new SnakeRandomAgent(agentCell, Color.GREEN);
+//        agents.add(snakeRandomAgent);
 
         SnakeAdhocAgent snakeAdhocAgent = new SnakeAdhocAgent(agentCell, Color.BLACK);
         agents.add(snakeAdhocAgent);
@@ -65,6 +65,11 @@ public class Environment {
 
     }
 
+    private void addTail(SnakeAgent agent){
+        Tail tailCell = new Tail(agent, agent.cell);
+        agent.addTail(tailCell);
+    }
+
     public void simulate() {
         for (int i = 0; i < maxIterations; i++) {
             for (SnakeAgent agent: agents) {
@@ -72,8 +77,6 @@ public class Environment {
                 fireUpdatedEnvironment();
             }
         }
-
-
     }
 
     public int getSize() {

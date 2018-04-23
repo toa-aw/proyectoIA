@@ -6,15 +6,12 @@ import java.awt.*;
 
 
 public class SnakeAdhocAgent extends SnakeAgent {
-    // TODO
-
     public SnakeAdhocAgent(Cell cell, Color color) {
         super(cell, color);
     }
 
     @Override
     protected Action decide(Perception perception) {
-        // TODO
         Cell n = perception.getN();
         Cell s = perception.getS();
         Cell e = perception.getE();
@@ -26,25 +23,32 @@ public class SnakeAdhocAgent extends SnakeAgent {
         int snakeLine = this.getCell().getLine();
         int snakeColumn = this.getCell().getColumn();
 
-        Action action = null;
-
-        if (!s.hasAgent() && !s.hasTail() && snakeLine < foodLine){
-            action = Action.SOUTH;
+        if (foodLine > snakeLine) {
+            if (s != null && !s.hasAgent() && !s.hasTail() ){
+                return Action.SOUTH;
+            }
         }
 
-        if (!n.hasTail() && !n.hasAgent() && snakeLine > foodLine){
-            action = Action.NORTH;
+        if (foodLine < snakeLine){
+            if (n != null && !n.hasTail() && !n.hasAgent()){
+                return Action.NORTH;
+            }
         }
 
-        if (!e.hasTail() && !e.hasAgent() && snakeColumn < foodColumn){
-            action = Action.EAST;
+        if(foodColumn > snakeColumn){
+            if (e != null && !e.hasTail() && !e.hasAgent()){
+                return Action.EAST;
+            }
+
         }
 
-        if (!w.hasTail() && !w.hasAgent() && snakeColumn > foodColumn){
-            action = Action.WEST;
+        if(foodColumn < snakeColumn){
+            if (w != null && !w.hasTail() && !w.hasAgent()){
+                return Action.WEST;
+            }
         }
 
-        return action;
+        return null;
     }
 
 }

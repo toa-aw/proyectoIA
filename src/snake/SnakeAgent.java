@@ -1,16 +1,20 @@
 package snake;
 
 import java.awt.Color;
+import java.util.LinkedList;
 
 public abstract class SnakeAgent {
 
     protected Cell cell;
     protected Color color;
+    protected LinkedList<Tail> tails;
+
 
     public SnakeAgent(Cell cell, Color color) {
         this.cell = cell;
         if(cell != null){this.cell.setAgent(this);}
         this.color = color;
+        tails = null;
     }
 
     public void act(Environment environment) {
@@ -62,5 +66,13 @@ public abstract class SnakeAgent {
     
     public Color getColor() {
         return color;
+    }
+
+    public  LinkedList<Tail> getTails(){
+        return tails;
+    }
+
+    public void addTail(Tail tail){
+        tails.add(tail);
     }
 }
