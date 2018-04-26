@@ -1,8 +1,8 @@
 package snake.snakeAI.ga;
 
-public abstract class RealVectorIndividual <P extends Problem, I extends RealVectorIndividual> extends Individual<P, I>{
+public abstract class RealVectorIndividual<P extends Problem, I extends RealVectorIndividual> extends Individual<P, I> {
     // TODO
-    
+
     public RealVectorIndividual(P problem, int size) {
         super(problem);
         // TODO
@@ -12,18 +12,18 @@ public abstract class RealVectorIndividual <P extends Problem, I extends RealVec
         super(original);
         // TODO
     }
-    
+
     @Override
     public int getNumGenes() {
         // TODO
         return 1;
     }
-    
+
     public double getGene(int index) {
         // TODO
         return 0;
     }
-    
+
     public void setGene(int index, double newValue) {
         // TODO
     }

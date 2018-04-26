@@ -1,10 +1,7 @@
 package gui;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.*;
+import java.awt.*;
 
 public class Main {
 

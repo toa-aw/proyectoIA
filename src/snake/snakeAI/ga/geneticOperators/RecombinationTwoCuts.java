@@ -3,7 +3,7 @@ package snake.snakeAI.ga.geneticOperators;
 import snake.snakeAI.ga.GeneticAlgorithm;
 import snake.snakeAI.ga.Individual;
 
-public class RecombinationTwoCuts <I extends Individual> extends Recombination<I> {
+public class RecombinationTwoCuts<I extends Individual> extends Recombination<I> {
 
     public RecombinationTwoCuts(double probability) {
         super(probability);
@@ -20,11 +20,12 @@ public class RecombinationTwoCuts <I extends Individual> extends Recombination<I
         }
 
         for (int i = cut1; i < cut2; i++) {
-            ind1.swapGenes(ind2, i);        }
+            ind1.swapGenes(ind2, i);
+        }
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Two cuts recombination (" + probability + ")";
-    }    
+    }
 }

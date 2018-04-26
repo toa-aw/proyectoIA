@@ -12,12 +12,11 @@ public class SnakeProblem implements Problem<SnakeIndividual> {
     private static final int NUM_NN_INPUTS = 100; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
     private static final int NUM_NN_OUTPUTS = 100; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
     private static final int GENOME_SIZE = 100; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
-
+    final public int numOutputs;
     final private int environmentSize;
     final private int maxIterations;
     final private int numInputs;
     final private int numHiddenUnits;
-    final public int numOutputs;
     final private int numEnvironmentRuns;
 
     final private Environment environment;
@@ -37,19 +36,6 @@ public class SnakeProblem implements Problem<SnakeIndividual> {
         environment = new Environment(
                 environmentSize,
                 maxIterations);
-    }
-
-    @Override
-    public SnakeIndividual getNewIndividual() {
-        return new SnakeIndividual(this, GENOME_SIZE /*TODO?*/);
-    }
-
-    public Environment getEnvironment() {
-        return environment;
-    }
-
-    public int getNumEvironmentSimulations() {
-        return numEnvironmentRuns;
     }
 
     // MODIFY IF YOU DEFINE OTHER PARAMETERS
@@ -81,6 +67,19 @@ public class SnakeProblem implements Problem<SnakeIndividual> {
                 maxIterations,
                 numHiddenUnits,
                 numEnvironmentRuns);
+    }
+
+    @Override
+    public SnakeIndividual getNewIndividual() {
+        return new SnakeIndividual(this, GENOME_SIZE /*TODO?*/);
+    }
+
+    public Environment getEnvironment() {
+        return environment;
+    }
+
+    public int getNumEvironmentSimulations() {
+        return numEnvironmentRuns;
     }
 
     // MODIFY IF YOU DEFINE OTHER PARAMETERS

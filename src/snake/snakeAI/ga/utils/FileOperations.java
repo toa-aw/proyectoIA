@@ -1,25 +1,26 @@
 package snake.snakeAI.ga.utils;
 
+import javax.imageio.IIOImage;
+import javax.imageio.ImageIO;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.FileImageOutputStream;
 import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
-import javax.imageio.IIOImage;
-import javax.imageio.ImageIO;
-import javax.imageio.ImageWriteParam;
-import javax.imageio.ImageWriter;
-import javax.imageio.stream.FileImageOutputStream;
 
 public class FileOperations {
-	
+
     /**
      * Appends a string to a text file.
+     *
      * @param fileName text file name.
-     * @param string string to be appended.
+     * @param string   string to be appended.
      */
-    public static void appendToTextFile(String fileName, String string){
+    public static void appendToTextFile(String fileName, String string) {
         BufferedWriter w = null;
         try {
             w = new BufferedWriter(new FileWriter(fileName, true));
@@ -29,15 +30,15 @@ public class FileOperations {
             System.err.println("Error: " + e);
         } finally {
             try {
-                if (w != null){
+                if (w != null) {
                     w.close();
                 }
             } catch (IOException ignore) {
             }
         }
     }
-    
-    public static void saveImage(String fileName, BufferedImage renderedImage){
+
+    public static void saveImage(String fileName, BufferedImage renderedImage) {
         // Find a jpeg writer
         ImageWriter writer = null;
         Iterator<ImageWriter> iter = ImageIO.getImageWritersByFormatName("jpg");
@@ -61,6 +62,6 @@ public class FileOperations {
             writer.write(null, imageIIO, iwp);
 
         } catch (IOException ex) {
-        }        
+        }
     }
 }

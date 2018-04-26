@@ -1,11 +1,7 @@
 package snake.snakeAI.ga.statistics;
 
+import snake.snakeAI.ga.*;
 import snake.snakeAI.ga.experiments.ExperimentEvent;
-import snake.snakeAI.ga.GAEvent;
-import snake.snakeAI.ga.GAListener;
-import snake.snakeAI.ga.GeneticAlgorithm;
-import snake.snakeAI.ga.Individual;
-import snake.snakeAI.ga.Problem;
 
 public class StatisticBestInRun<I extends Individual, P extends Problem<I>> implements GAListener {
 

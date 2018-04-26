@@ -1,6 +1,6 @@
 package snake;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class Cell {
     public static final Color COLOR = Color.WHITE;
@@ -35,20 +35,26 @@ public class Cell {
         return agent != null;
     }
 
-    public Food getFood() { return food; }
+    public Food getFood() {
+        return food;
+    }
 
-    public void setFood(Food food) { this.food = food; }
+    public void setFood(Food food) {
+        this.food = food;
+    }
 
-    public boolean hastFood() { return food != null; }
+    public boolean hastFood() {
+        return food != null;
+    }
 
     public Color getColor() {
         if (hasAgent()) {
             return agent.getColor();
         } else if (hastFood()) {
             return food.getColor();
-        } else if (hasTail()){
+        } else if (hasTail()) {
             return tail.getColor();
-        }else {
+        } else {
             return Cell.COLOR;
         }
     }

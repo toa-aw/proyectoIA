@@ -1,16 +1,21 @@
 package snake.snakeAI;
 
-import snake.snakeAI.ga.experiments.*;
 import snake.snakeAI.ga.GAListener;
 import snake.snakeAI.ga.GeneticAlgorithm;
+import snake.snakeAI.ga.experiments.Experiment;
+import snake.snakeAI.ga.experiments.ExperimentListener;
+import snake.snakeAI.ga.experiments.ExperimentsFactory;
 import snake.snakeAI.ga.geneticOperators.*;
-import snake.snakeAI.ga.selectionMethods.*;
+import snake.snakeAI.ga.selectionMethods.RouletteWheel;
+import snake.snakeAI.ga.selectionMethods.SelectionMethod;
+import snake.snakeAI.ga.selectionMethods.Tournament;
+import snake.snakeAI.ga.statistics.StatisticBestAverage;
+import snake.snakeAI.ga.statistics.StatisticBestInRun;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
-import snake.snakeAI.ga.statistics.StatisticBestAverage;
-import snake.snakeAI.ga.statistics.StatisticBestInRun;
 
 public class SnakeExperimentsFactory extends ExperimentsFactory {
 
@@ -33,7 +38,7 @@ public class SnakeExperimentsFactory extends ExperimentsFactory {
         maxGenerations = Integer.parseInt(getParameterValue("Max generations"));
 
         //SELECTION
-        switch(getParameterValue("Selection")) {
+        switch (getParameterValue("Selection")) {
             case "tournament":
                 int tournamentSize = Integer.parseInt(getParameterValue("Tournament size"));
                 selection = new Tournament<>(populationSize, tournamentSize);
@@ -44,7 +49,7 @@ public class SnakeExperimentsFactory extends ExperimentsFactory {
 
         //RECOMBINATION
         double recombinationProbability = Double.parseDouble(getParameterValue("Recombination probability"));
-        switch(getParameterValue("Recombination")){
+        switch (getParameterValue("Recombination")) {
             case "one_cut":
                 recombination = new RecombinationOneCut<>(recombinationProbability);
                 break;
@@ -56,7 +61,6 @@ public class SnakeExperimentsFactory extends ExperimentsFactory {
         }
 
         // TODO YOU MAY ADD NEW PARAMETERS (eg., NEW GENETIC OPERATORS, ...).
-
 
 
         //MUTATION
@@ -87,12 +91,12 @@ public class SnakeExperimentsFactory extends ExperimentsFactory {
     public GeneticAlgorithm generateGAInstance(int seed) {
         GeneticAlgorithm<SnakeIndividual, SnakeProblem> ga =
                 new GeneticAlgorithm<>(
-                    populationSize,
-                    maxGenerations,
-                    selection,
-                    recombination,
-                    mutation,
-                    new Random(seed));
+                        populationSize,
+                        maxGenerations,
+                        selection,
+                        recombination,
+                        mutation,
+                        new Random(seed));
 
         for (ExperimentListener statistic : statistics) {
             ga.addGAListener((GAListener) statistic);
@@ -102,12 +106,12 @@ public class SnakeExperimentsFactory extends ExperimentsFactory {
     }
 
     private ExperimentListener buildStatistic(String statisticName) {
-        switch(statisticName){
+        switch (statisticName) {
             case "BestIndividual":
                 return new StatisticBestInRun();
             case "BestAverage":
                 return new StatisticBestAverage(numRuns);
-        }        
+        }
         return null;
     }
 

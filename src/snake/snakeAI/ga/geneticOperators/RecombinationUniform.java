@@ -3,7 +3,7 @@ package snake.snakeAI.ga.geneticOperators;
 import snake.snakeAI.ga.GeneticAlgorithm;
 import snake.snakeAI.ga.Individual;
 
-public class RecombinationUniform <I extends Individual> extends Recombination<I> {
+public class RecombinationUniform<I extends Individual> extends Recombination<I> {
 
     public RecombinationUniform(double probability) {
         super(probability);
@@ -19,9 +19,9 @@ public class RecombinationUniform <I extends Individual> extends Recombination<I
             }
         }
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "uniform recombination (" + probability + ")";
     }
 }

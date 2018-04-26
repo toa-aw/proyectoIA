@@ -29,22 +29,22 @@ public class SnakeRandomAgent extends SnakeAgent {
             default:
                 action = Action.SOUTH;
         }
-        if(action == Action.NORTH && (n == null || n.hasAgent() || n.hasTail())){
-                action = Action.WEST;
+        if (action == Action.NORTH && (n == null || n.hasAgent() || n.hasTail())) {
+            action = Action.WEST;
         }
-        if(action == Action.SOUTH && (s == null || s.hasAgent() || s.hasTail())){
+        if (action == Action.SOUTH && (s == null || s.hasAgent() || s.hasTail())) {
             action = Action.EAST;
         }
-        if(action == Action.WEST && (w == null || w.hasAgent() || w.hasTail())){
+        if (action == Action.WEST && (w == null || w.hasAgent() || w.hasTail())) {
             action = Action.NORTH;
         }
-        if(action == Action.EAST && (e == null || e.hasAgent() || e.hasTail())){
+        if (action == Action.EAST && (e == null || e.hasAgent() || e.hasTail())) {
             action = Action.SOUTH;
         }
 
-        if(s != null && s.hastFood())
+        if (s != null && s.hastFood())
             action = Action.SOUTH;
-        if(e != null && e.hastFood())
+        if (e != null && e.hastFood())
             action = Action.EAST;
         if (w != null && w.hastFood())
             action = Action.WEST;

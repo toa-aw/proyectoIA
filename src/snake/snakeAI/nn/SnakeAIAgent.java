@@ -1,11 +1,14 @@
 package snake.snakeAI.nn;
 
-import snake.*;
+import snake.Action;
+import snake.Cell;
+import snake.Perception;
+import snake.SnakeAgent;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class SnakeAIAgent extends SnakeAgent {
-   
+
     final private int inputLayerSize;
     final private int hiddenLayerSize;
     final private int outputLayerSize;
@@ -52,17 +55,16 @@ public class SnakeAIAgent extends SnakeAgent {
 
     /**
      * Initializes the network's weights
-     * 
+     *
      * @param weights vector of weights comming from the individual.
      */
     public void setWeights(double[] weights) {
         // TODO
     }
-    
+
     /**
      * Computes the output of the network for the inputs saved in the class
      * vector "inputs".
-     *
      */
     private void forwardPropagation() {
         // TODO

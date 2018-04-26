@@ -15,7 +15,21 @@ public class Tail {
             this.cell.setTail(this);
     }
 
-    public Color getColor(){
+    public Cell getCell() {
+        return cell;
+    }
+
+    public void setCell(Cell newCell) {
+        if (this.cell != null) {
+            this.cell.setTail(null);
+        }
+        this.cell = newCell;
+        if (newCell != null) {
+            newCell.setTail(this);
+        }
+    }
+
+    public Color getColor() {
         return color;
     }
 }

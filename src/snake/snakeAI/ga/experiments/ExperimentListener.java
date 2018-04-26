@@ -1,6 +1,6 @@
 package snake.snakeAI.ga.experiments;
 
-public interface ExperimentListener{
-    
+public interface ExperimentListener {
+
     void experimentEnded(ExperimentEvent event);
 }

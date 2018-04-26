@@ -20,7 +20,7 @@ public class SnakeIndividual extends RealVectorIndividual<SnakeProblem, SnakeInd
         return 0;
     }
 
-    public double[] getGenome(){
+    public double[] getGenome() {
         //TODO
         return null;
     }
@@ -35,7 +35,6 @@ public class SnakeIndividual extends RealVectorIndividual<SnakeProblem, SnakeInd
     }
 
     /**
-     *
      * @param i
      * @return 1 if this object is BETTER than i, -1 if it is WORST than I and
      * 0, otherwise.

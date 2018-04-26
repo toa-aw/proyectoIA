@@ -1,6 +1,6 @@
 package snake;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.LinkedList;
 
 public abstract class SnakeAgent {
@@ -9,12 +9,13 @@ public abstract class SnakeAgent {
     protected Color color;
     protected LinkedList<Tail> tails;
 
-
     public SnakeAgent(Cell cell, Color color) {
         this.cell = cell;
-        if(cell != null){this.cell.setAgent(this);}
+        if (cell != null) {
+            this.cell.setAgent(this);
+        }
         this.color = color;
-        tails = null;
+        tails = new LinkedList<>();
     }
 
     public void act(Environment environment) {
@@ -32,8 +33,7 @@ public abstract class SnakeAgent {
                 environment.getFoodCell().getFood());
     }
 
-    protected void execute(Action action, Environment environment)
-    {
+    protected void execute(Action action, Environment environment) {
 
         Cell nextCell = null;
 
@@ -48,6 +48,9 @@ public abstract class SnakeAgent {
         }
 
         if (nextCell != null && !nextCell.hasAgent()) {
+            if (nextCell.hastFood()) {
+                environment.reload();
+            }
             setCell(nextCell);
         }
     }
@@ -59,20 +62,41 @@ public abstract class SnakeAgent {
     }
 
     public void setCell(Cell newCell) {
-        if(this.cell != null){this.cell.setAgent(null);}
+        if (this.cell != null) {
+            this.cell.setAgent(null);
+        }
         this.cell = newCell;
-        if(newCell != null){newCell.setAgent(this);}
-    }    
-    
+
+        if (newCell != null) {
+
+            //TODO Aqui hay un bug!
+            if (newCell.hastFood()) {
+                Tail tail = new Tail(this, this.cell);
+                this.cell.setTail(tail);
+                this.tails.add(tail);
+            } else if (!tails.isEmpty()) {
+                Tail tail = new Tail(this, this.cell);
+                this.cell.setTail(tail);
+                this.tails.add(tail);
+                this.tails.get(0).setCell(null);
+                this.tails.remove(0);
+            }
+            newCell.setAgent(this);
+            if (newCell.hastFood()) {
+                newCell.setFood(null);
+            }
+        }
+    }
+
     public Color getColor() {
         return color;
     }
 
-    public  LinkedList<Tail> getTails(){
+    public LinkedList<Tail> getTails() {
         return tails;
     }
 
-    public void addTail(Tail tail){
+    public void addTail(Tail tail) {
         tails.add(tail);
     }
 }

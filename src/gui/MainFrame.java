@@ -1,26 +1,27 @@
 package gui;
 
-import snake.snakeAI.SnakeIndividual;
-import snake.snakeAI.SnakeProblem;
-import snake.snakeAI.SnakeExperimentsFactory;
-import snake.snakeAI.ga.experiments.Experiment;
-import snake.snakeAI.ga.experiments.ExperimentEvent;
-import snake.snakeAI.ga.GAEvent;
-import snake.snakeAI.ga.GAListener;
-import snake.snakeAI.ga.GeneticAlgorithm;
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import java.util.Random;
-import javax.swing.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import snake.snakeAI.SnakeExperimentsFactory;
+import snake.snakeAI.SnakeIndividual;
+import snake.snakeAI.SnakeProblem;
+import snake.snakeAI.ga.GAEvent;
+import snake.snakeAI.ga.GAListener;
+import snake.snakeAI.ga.GeneticAlgorithm;
+import snake.snakeAI.ga.experiments.Experiment;
+import snake.snakeAI.ga.experiments.ExperimentEvent;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.util.Random;
 
 public class MainFrame extends JFrame implements GAListener {
 

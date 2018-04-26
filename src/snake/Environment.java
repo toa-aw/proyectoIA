@@ -2,7 +2,7 @@ package snake;
 
 import snake.snakeAdhoc.SnakeAdhocAgent;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -12,8 +12,10 @@ public class Environment {
     public static Random random;
     private final Cell[][] grid;
     private final List<SnakeAgent> agents;
-    private Food food;
     private final int maxIterations;
+    //listeners
+    private final ArrayList<EnvironmentListener> listeners = new ArrayList<>();
+    private Food food;
 
     public Environment(
             int size,
@@ -36,11 +38,14 @@ public class Environment {
         random.setSeed(seed);
         placeAgents();
         placeFood();
-        for (SnakeAgent agent: agents) {
-            if(agent.getCell() == food.getCell()) {
-                addTail(agent);
-            }
-        }
+
+    }
+
+    public void reload() {
+        placeFood();
+//        for (SnakeAgent a: agents) {
+//            a.getTails().get(getSize()-1);
+//        }
     }
 
     // TODO MODIFY TO PLACE ADHOC OR AI SNAKE AGENTS
@@ -54,25 +59,25 @@ public class Environment {
     }
 
     private void placeFood() {
-        boolean foodIsSet = true;
-        while (foodIsSet) {
-            Cell cellAux = grid[random.nextInt(grid.length)] [random.nextInt(grid.length)];
-            if(!cellAux.hasAgent()) {
+        boolean foodIsSet = false;
+        while (!foodIsSet) {
+            Cell cellAux = grid[random.nextInt(grid.length)][random.nextInt(grid.length)];
+            if (!cellAux.hasAgent() && !cellAux.hasTail()) {
                 food = new Food(cellAux);
-                foodIsSet = false;
+                foodIsSet = true;
             }
         }
 
     }
 
-    private void addTail(SnakeAgent agent){
+    private void addTail(SnakeAgent agent) {
         Tail tailCell = new Tail(agent, agent.cell);
         agent.addTail(tailCell);
     }
 
     public void simulate() {
         for (int i = 0; i < maxIterations; i++) {
-            for (SnakeAgent agent: agents) {
+            for (SnakeAgent agent : agents) {
                 agent.act(this);
                 fireUpdatedEnvironment();
             }
@@ -83,7 +88,7 @@ public class Environment {
         return grid.length;
     }
 
-        public Cell getNorthCell(Cell cell) {
+    public Cell getNorthCell(Cell cell) {
         if (cell.getLine() > 0) {
             return grid[cell.getLine() - 1][cell.getColumn()];
         }
@@ -111,7 +116,7 @@ public class Environment {
         return null;
     }
 
-    public Cell getFoodCell(){
+    public Cell getFoodCell() {
         return food.getCell();
     }
 
@@ -130,9 +135,6 @@ public class Environment {
     public Color getCellColor(int linha, int coluna) {
         return grid[linha][coluna].getColor();
     }
-
-    //listeners
-    private final ArrayList<EnvironmentListener> listeners = new ArrayList<>();
 
     public synchronized void addEnvironmentListener(EnvironmentListener l) {
         if (!listeners.contains(l)) {

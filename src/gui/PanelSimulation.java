@@ -2,29 +2,23 @@ package gui;
 
 import snake.Environment;
 import snake.EnvironmentListener;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.SwingWorker;
 
 public class PanelSimulation extends JPanel implements EnvironmentListener {
 
     public static final int PANEL_SIZE = 250;
     public static final int CELL_SIZE = 20;
     public static final int GRID_TO_PANEL_GAP = 20;
+    final JButton buttonSimulate = new JButton("Simulate");
     MainFrame mainFrame;
+    JPanel environmentPanel = new JPanel();
     private Environment environment;
     private Image image;
-    JPanel environmentPanel = new JPanel();
-    final JButton buttonSimulate = new JButton("Simulate");
 
     public PanelSimulation(MainFrame mainFrame) {
         this.mainFrame = mainFrame;

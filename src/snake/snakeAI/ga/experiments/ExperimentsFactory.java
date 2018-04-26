@@ -1,6 +1,7 @@
 package snake.snakeAI.ga.experiments;
 
 import snake.snakeAI.ga.GeneticAlgorithm;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;

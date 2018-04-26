@@ -30,7 +30,7 @@ public class RouletteWheel<I extends Individual, P extends Problem<I>> extends S
         for (int i = 0; i < popSize; i++) {
             result.addIndividual(roulette(original));
         }
-        
+
         return result;
     }
 
@@ -46,9 +46,9 @@ public class RouletteWheel<I extends Individual, P extends Problem<I>> extends S
         //For the case where all individuals have fitness 0
         return (I) population.getIndividual(GeneticAlgorithm.random.nextInt(popSize)).clone();
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Roulette wheel";
-    }    
+    }
 }

@@ -4,20 +4,20 @@ public class GAEvent {
 
     GeneticAlgorithm source;
     private boolean stopped;
-    
+
     public GAEvent(GeneticAlgorithm source) {
         this.source = source;
     }
-    
-    public boolean isStopped(){
+
+    public boolean isStopped() {
         return stopped;
     }
-    
-    public void setStopped(boolean stopped){
+
+    public void setStopped(boolean stopped) {
         this.stopped = stopped;
     }
-    
-    public GeneticAlgorithm getSource(){
+
+    public GeneticAlgorithm getSource() {
         return source;
     }
 }

@@ -5,7 +5,7 @@ import snake.snakeAI.ga.Individual;
 import snake.snakeAI.ga.Population;
 import snake.snakeAI.ga.Problem;
 
-public class Tournament <I extends Individual, P extends Problem<I>> extends SelectionMethod<I, P> {
+public class Tournament<I extends Individual, P extends Problem<I>> extends SelectionMethod<I, P> {
 
     private int size;
 
@@ -20,7 +20,7 @@ public class Tournament <I extends Individual, P extends Problem<I>> extends Sel
 
     @Override
     public Population<I, P> run(Population<I, P> original) {
-        Population<I, P> result = new Population<>(original.getSize());        
+        Population<I, P> result = new Population<>(original.getSize());
 
         for (int i = 0; i < popSize; i++) {
             result.addIndividual(tournament(original));
@@ -39,9 +39,9 @@ public class Tournament <I extends Individual, P extends Problem<I>> extends Sel
         }
         return (I) best.clone();
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Tournament(" + size + ")";
-    }    
+    }
 }

@@ -3,6 +3,7 @@ package snake.snakeAI.ga;
 import snake.snakeAI.ga.geneticOperators.Mutation;
 import snake.snakeAI.ga.geneticOperators.Recombination;
 import snake.snakeAI.ga.selectionMethods.SelectionMethod;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -15,6 +16,8 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
     private final SelectionMethod<I, P> selection;
     private final Recombination<I> recombination;
     private final Mutation<I> mutation;
+    //Listeners
+    private final transient List<GAListener> listeners = new ArrayList<>(3);
     private int t;
     private Population<I, P> population;
     private boolean stopped;
@@ -46,7 +49,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
             Population<I, P> populationAux = selection.run(population);
             recombination(populationAux);
             mutation(populationAux);
-            
+
             population = generateNewPopulation(population, populationAux);
             I bestInGen = population.evaluate();
             if (bestInGen.compareTo(bestInRun) > 0) {
@@ -76,7 +79,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
             mutation.run(population.getIndividual(i));
         }
     }
-    
+
     public Population generateNewPopulation(Population<I, P> current, Population<I, P> next) {
         return next;
     }
@@ -111,9 +114,6 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
         sb.append("Mutation:" + mutation + "\n");
         return sb.toString();
     }
-
-    //Listeners
-    private final transient List<GAListener> listeners = new ArrayList<>(3);
 
     public synchronized void removeAGListener(GAListener listener) {
         if (listeners != null && listeners.contains(listener)) {
