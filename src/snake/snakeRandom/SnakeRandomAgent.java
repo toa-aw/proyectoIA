@@ -29,19 +29,53 @@ public class SnakeRandomAgent extends SnakeAgent {
             default:
                 action = Action.SOUTH;
         }
-        if (action == Action.NORTH && (n == null || n.hasAgent() || n.hasTail())) {
-            action = Action.WEST;
-        }
-        if (action == Action.SOUTH && (s == null || s.hasAgent() || s.hasTail())) {
-            action = Action.EAST;
-        }
-        if (action == Action.WEST && (w == null || w.hasAgent() || w.hasTail())) {
-            action = Action.NORTH;
-        }
-        if (action == Action.EAST && (e == null || e.hasAgent() || e.hasTail())) {
-            action = Action.SOUTH;
-        }
 
+        if (action == Action.NORTH) {
+            if(n == null || n.hasAgent() || n.hasTail()){
+                action = Action.WEST;
+            }
+            if (w == null || w.hasAgent() || w.hasTail()){
+                action = Action.EAST;
+            }
+            if (w == null || w.hasAgent() || w.hasTail()){
+                action = Action.SOUTH;
+            }
+        }
+        if (action == Action.SOUTH ) {
+            if((s == null || s.hasAgent() || s.hasTail())){
+                action = Action.EAST;
+            }
+            if((s == null || s.hasAgent() || s.hasTail())){
+                action = Action.WEST;
+            }
+            if((s == null || s.hasAgent() || s.hasTail())){
+                action = Action.NORTH;
+            }
+
+        }
+        if (action == Action.WEST ) {
+
+            if (w == null || w.hasAgent() || w.hasTail()){
+                action = Action.NORTH;
+            }
+            if (w == null || w.hasAgent() || w.hasTail()){
+                action = Action.SOUTH;
+            }
+            if (w == null || w.hasAgent() || w.hasTail()){
+                action = Action.EAST;
+            }
+        }
+        if (action == Action.EAST ) {
+           if(e == null || e.hasAgent() || e.hasTail()){
+               action = Action.SOUTH;
+           }
+            if(e == null || e.hasAgent() || e.hasTail()){
+                action = Action.NORTH;
+            }
+            if(e == null || e.hasAgent() || e.hasTail()){
+                action = Action.WEST;
+            }
+        }
         if (s != null && s.hastFood())
             action = Action.SOUTH;
         if (e != null && e.hastFood())

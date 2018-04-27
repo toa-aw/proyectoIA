@@ -1,6 +1,7 @@
 package snake;
 
 import snake.snakeAdhoc.SnakeAdhocAgent;
+import snake.snakeRandom.SnakeRandomAgent;
 
 import java.awt.*;
 import java.util.ArrayList;
