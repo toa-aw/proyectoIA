@@ -9,7 +9,7 @@ public class Tail {
 
     public Tail(SnakeAgent snakeAgent, Cell cell) {
         this.snakeAgent = snakeAgent;
-        this.color = snakeAgent.getColor();
+        this.color = Color.lightGray ;
         this.cell = cell;
         if (cell != null)
             this.cell.setTail(this);

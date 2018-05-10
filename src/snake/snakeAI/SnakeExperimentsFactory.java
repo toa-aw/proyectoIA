@@ -90,14 +90,7 @@ public class SnakeExperimentsFactory extends ExperimentsFactory {
     @Override
     public GeneticAlgorithm generateGAInstance(int seed) {
         GeneticAlgorithm<SnakeIndividual, SnakeProblem> ga =
-                new GeneticAlgorithm<>(
-                        populationSize,
-                        maxGenerations,
-                        selection,
-                        recombination,
-                        mutation,
-                        new Random(seed));
-
+                new GeneticAlgorithm<>(populationSize, maxGenerations, selection, recombination, mutation, new Random(seed));
         for (ExperimentListener statistic : statistics) {
             ga.addGAListener((GAListener) statistic);
         }

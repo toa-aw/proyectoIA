@@ -1,9 +1,6 @@
 package snake.snakeAI.nn;
 
-import snake.Action;
-import snake.Cell;
-import snake.Perception;
-import snake.SnakeAgent;
+import snake.*;
 
 import java.awt.*;
 
@@ -12,6 +9,9 @@ public class SnakeAIAgent extends SnakeAgent {
     final private int inputLayerSize;
     final private int hiddenLayerSize;
     final private int outputLayerSize;
+    private static final int INPUTS_ONE = 1;
+    private static final int INPUTS_CERO = 0;
+
 
     /**
      * Network inputs array.
@@ -32,13 +32,9 @@ public class SnakeAIAgent extends SnakeAgent {
     /**
      * Output layer activation values.
      */
-    final private int[] output;
+    final private double[] output;
 
-    public SnakeAIAgent(
-            Cell cell,
-            int inputLayerSize,
-            int hiddenLayerSize,
-            int outputLayerSize) {
+    public SnakeAIAgent(Cell cell, int inputLayerSize, int hiddenLayerSize, int outputLayerSize) {
         super(cell, Color.BLUE);
         this.inputLayerSize = inputLayerSize;
         this.hiddenLayerSize = hiddenLayerSize;
@@ -49,7 +45,7 @@ public class SnakeAIAgent extends SnakeAgent {
         w2 = new double[hiddenLayerSize + 1][outputLayerSize]; // + 1 due to the bias entry for the output neurons
         hiddenLayerOutput = new double[hiddenLayerSize + 1];
         hiddenLayerOutput[hiddenLayerSize] = -1; // the bias entry for the output neurons
-        output = new int[outputLayerSize];
+        output = new double[outputLayerSize];
     }
 
 
@@ -59,21 +55,164 @@ public class SnakeAIAgent extends SnakeAgent {
      * @param weights vector of weights comming from the individual.
      */
     public void setWeights(double[] weights) {
-        // TODO
+        int cont = 0;
+        for (int i = 0; i < inputLayerSize; i++) {
+            for (int j = 0; j < hiddenLayerSize; j++) {
+                w1[i][j] = weights[cont];
+                cont++;
+            }
+
+        }
+
+        for (int i = 0; i < hiddenLayerSize + 1; i++) {
+            for (int j = 0; j < outputLayerSize; j++) {
+                w2[i][j] = weights[cont];
+                cont++;
+            }
+        }
     }
+
 
     /**
      * Computes the output of the network for the inputs saved in the class
      * vector "inputs".
      */
-    private void forwardPropagation() {
-        // TODO
+    private double[] forwardPropagation(int[] instance) {
 
+        //implemetar algoritmo de la liña a) del ejercicio backpropagation
+        float somaPesada = 0;
+
+        for (int i = 0; i < hiddenLayerSize; i++) {
+            somaPesada = 0;
+            for (int j = 0; j < inputLayerSize; j++) {
+                somaPesada += instance[j] * w1[j][i];
+            }
+            hiddenLayerOutput[i] = sigmoide(somaPesada);
+        }
+
+        for (int i = 0; i < outputLayerSize; i++) {
+            somaPesada = 0;
+            for (int j = 0; j < hiddenLayerSize + 1; j++) {
+                somaPesada += hiddenLayerOutput[j] * w2[j][i];
+            }
+            output[i] = sigmoide(somaPesada);
+        }
+
+        return output;
     }
+
+    private double sigmoide(float somaPesada) {
+        //return 1 / (1 + Math.pow(Math.E, -somaPesada));
+        return 1 / (1 + Math.exp(-somaPesada));
+    }
+
 
     @Override
     protected Action decide(Perception perception) {
-        // TODO
-        return null;
+        setInputs(perception);
+        forwardPropagation(inputs);
+
+        //output 0 = north
+        //output 1 = south
+        //output 2 = east
+        //output 3 = west
+
+        int highestOutput = 0;
+
+        for (int i = 0; i < output.length; i++) {
+            if (output[i] > highestOutput) {
+                highestOutput = i;
+            } else {
+                highestOutput = 5;
+            }
+        }
+        switch (highestOutput) {
+            case 0:
+                return Action.NORTH;
+
+            case 1:
+                return Action.SOUTH;
+
+            case 2:
+                return Action.EAST;
+
+            case 4:
+                return Action.WEST;
+
+            default:
+                return null;
+        }
+    }
+
+    private void setInputs(Perception perception) {
+
+        Cell n = perception.getN();
+        Cell s = perception.getS();
+        Cell e = perception.getE();
+        Cell w = perception.getW();
+        Food food = perception.getFood();
+
+        int foodLine = food.getCell().getLine();
+        int foodColumn = food.getCell().getColumn();
+
+        int snakeColumn = this.getCell().getColumn();
+        int snakeLine = this.getCell().getLine();
+
+        /* inputs 0 = n
+         * inputs 1 = s
+         * inputs 2 = e
+         * inputs 3 = w
+         * inputs 4 = foodN
+         * inputs 5 = foodS
+         * inputs 6 = foodE
+         * inputs 7 = foodW*/
+
+        if (!n.hasTail() && !n.hasAgent() && n != null) {
+            inputs[0] = INPUTS_ONE;
+        } else {
+            inputs[0] = INPUTS_CERO;
+        }
+
+        if (!s.hasTail() && !s.hasAgent() && s != null) {
+            inputs[1] = INPUTS_ONE;
+        } else {
+            inputs[1] = INPUTS_CERO;
+        }
+
+        if (!e.hasTail() && !e.hasAgent() && e != null) {
+            inputs[2] = INPUTS_ONE;
+        } else {
+            inputs[2] = INPUTS_CERO;
+        }
+
+        if (!w.hasTail() && !w.hasAgent() && w != null) {
+            inputs[3] = INPUTS_ONE;
+        } else {
+            inputs[3] = INPUTS_CERO;
+        }
+
+        if (foodLine < snakeLine) {
+            inputs[4] = INPUTS_ONE;
+        } else {
+            inputs[4] = INPUTS_CERO;
+        }
+
+        if (foodLine > snakeLine) {
+            inputs[5] = INPUTS_ONE;
+        } else {
+            inputs[5] = INPUTS_CERO;
+        }
+
+        if (foodColumn > snakeColumn) {
+            inputs[6] = INPUTS_ONE;
+        } else {
+            inputs[6] = INPUTS_CERO;
+        }
+
+        if (foodColumn < snakeColumn) {
+            inputs[7] = INPUTS_ONE;
+        } else {
+            inputs[7] = INPUTS_CERO;
+        }
     }
 }

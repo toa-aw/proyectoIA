@@ -69,7 +69,6 @@ public abstract class SnakeAgent {
         this.cell = newCell;
 
         if (newCell != null) {
-            //TODO Aqui hay un bug!
             if (aux.hastFood()) {
                 Tail tail = new Tail(this, aux);
                 //newCell.setTail(tail);

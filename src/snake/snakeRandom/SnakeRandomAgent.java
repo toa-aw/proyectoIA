@@ -15,76 +15,42 @@ public class SnakeRandomAgent extends SnakeAgent {
         Cell s = perception.getS();
         Cell e = perception.getE();
         Cell w = perception.getW();
-        Action action;
-        switch (Environment.random.nextInt(4)) {
-            case 1:
-                action = Action.EAST;
-                break;
-            case 2:
-                action = Action.WEST;
-                break;
-            case 3:
-                action = Action.NORTH;
-                break;
-            default:
-                action = Action.SOUTH;
-        }
+        Action action = generateAction();
 
         if (action == Action.NORTH) {
-            if(n == null || n.hasAgent() || n.hasTail()){
-                action = Action.WEST;
-            }
-            if (w == null || w.hasAgent() || w.hasTail()){
-                action = Action.EAST;
-            }
-            if (w == null || w.hasAgent() || w.hasTail()){
-                action = Action.SOUTH;
+            if (n == null || n.hasAgent() || n.hasTail()) {
+                decide(perception);
             }
         }
-        if (action == Action.SOUTH ) {
-            if((s == null || s.hasAgent() || s.hasTail())){
-                action = Action.EAST;
-            }
-            if((s == null || s.hasAgent() || s.hasTail())){
-                action = Action.WEST;
-            }
-            if((s == null || s.hasAgent() || s.hasTail())){
-                action = Action.NORTH;
-            }
-
-        }
-        if (action == Action.WEST ) {
-
-            if (w == null || w.hasAgent() || w.hasTail()){
-                action = Action.NORTH;
-            }
-            if (w == null || w.hasAgent() || w.hasTail()){
-                action = Action.SOUTH;
-            }
-            if (w == null || w.hasAgent() || w.hasTail()){
-                action = Action.EAST;
+        if (action == Action.SOUTH) {
+            if (s == null || s.hasAgent() || s.hasTail()) {
+                decide(perception);
             }
         }
-        if (action == Action.EAST ) {
-           if(e == null || e.hasAgent() || e.hasTail()){
-               action = Action.SOUTH;
-           }
-            if(e == null || e.hasAgent() || e.hasTail()){
-                action = Action.NORTH;
-            }
-            if(e == null || e.hasAgent() || e.hasTail()){
-                action = Action.WEST;
+        if (action == Action.WEST) {
+            if (w == null || w.hasAgent() || w.hasTail()) {
+                decide(perception);
             }
         }
-        if (s != null && s.hastFood())
-            action = Action.SOUTH;
-        if (e != null && e.hastFood())
-            action = Action.EAST;
-        if (w != null && w.hastFood())
-            action = Action.WEST;
-        if (n != null && n.hastFood())
-            action = Action.NORTH;
+        if (action == Action.EAST) {
+            if (e == null || e.hasAgent() || e.hasTail()) {
+                decide(perception);
+            }
+        }
 
         return action;
+    }
+
+    protected Action generateAction() {
+        switch (Environment.random.nextInt(4)) {
+            case 1:
+                return Action.EAST;
+            case 2:
+                return Action.WEST;
+            case 3:
+                return Action.NORTH;
+            default:
+                return Action.SOUTH;
+        }
     }
 }

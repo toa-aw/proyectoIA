@@ -44,19 +44,16 @@ public class Environment {
 
     public void reload() {
         placeFood();
-//        for (SnakeAgent a: agents) {
-//            a.getTails().get(getSize()-1);
-//        }
     }
-
-    // TODO MODIFY TO PLACE ADHOC OR AI SNAKE AGENTS
     private void placeAgents() {
         Cell agentCell = grid[random.nextInt(grid.length)][random.nextInt(grid.length)];
-//        SnakeRandomAgent snakeRandomAgent = new SnakeRandomAgent(agentCell, Color.GREEN);
-//        agents.add(snakeRandomAgent);
+        SnakeRandomAgent snakeRandomAgent = new SnakeRandomAgent(agentCell, Color.GREEN);
+        agents.add(snakeRandomAgent);
 
-        SnakeAdhocAgent snakeAdhocAgent = new SnakeAdhocAgent(agentCell, Color.BLACK);
-        agents.add(snakeAdhocAgent);
+//        SnakeAdhocAgent snakeAdhocAgent1 = new SnakeAdhocAgent(agentCell, Color.BLACK);
+//        agents.add(snakeAdhocAgent1);
+//        SnakeAdhocAgent snakeAdhocAgent2 = new SnakeAdhocAgent(agentCell, Color.BLACK);
+//        agents.add(snakeAdhocAgent2);
     }
 
     private void placeFood() {

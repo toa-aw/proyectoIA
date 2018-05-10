@@ -9,8 +9,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SnakeProblem implements Problem<SnakeIndividual> {
-    private static final int NUM_NN_INPUTS = 100; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
-    private static final int NUM_NN_OUTPUTS = 100; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
+    private static final int NUM_NN_INPUTS = 8; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
+    private static final int NUM_NN_OUTPUTS = 4; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
     private static final int GENOME_SIZE = 100; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
     final public int numOutputs;
     final private int environmentSize;
@@ -21,11 +21,7 @@ public class SnakeProblem implements Problem<SnakeIndividual> {
 
     final private Environment environment;
 
-    public SnakeProblem(
-            int environmentSize,
-            int maxIterations,
-            int numHiddenUnits,
-            int numEnvironmentRuns) {
+    public SnakeProblem(int environmentSize, int maxIterations, int numHiddenUnits, int numEnvironmentRuns) {
         this.environmentSize = environmentSize;
         this.maxIterations = maxIterations;
         this.numInputs = NUM_NN_INPUTS;
@@ -62,11 +58,7 @@ public class SnakeProblem implements Problem<SnakeIndividual> {
         int numHiddenUnits = Integer.parseInt(parametersValues.get(2));
         int numEnvironmentRuns = Integer.parseInt(parametersValues.get(3));
 
-        return new SnakeProblem(
-                environmentSize,
-                maxIterations,
-                numHiddenUnits,
-                numEnvironmentRuns);
+        return new SnakeProblem(environmentSize, maxIterations, numHiddenUnits, numEnvironmentRuns);
     }
 
     @Override
