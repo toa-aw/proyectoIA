@@ -1,6 +1,7 @@
 package snake.snakeAI.nn;
 
 import snake.*;
+import snake.snakeAI.ga.RealVectorIndividual;
 
 import java.awt.*;
 
@@ -47,8 +48,6 @@ public class SnakeAIAgent extends SnakeAgent {
         hiddenLayerOutput[hiddenLayerSize] = -1; // the bias entry for the output neurons
         output = new double[outputLayerSize];
     }
-
-
     /**
      * Initializes the network's weights
      *
@@ -116,17 +115,19 @@ public class SnakeAIAgent extends SnakeAgent {
         //output 1 = south
         //output 2 = east
         //output 3 = west
+        //still
 
-        int highestOutput = 0;
+        double highestOutput = 0;
+        int direction = -1;
 
         for (int i = 0; i < output.length; i++) {
             if (output[i] > highestOutput) {
-                highestOutput = i;
-            } else {
-                highestOutput = 5;
+                highestOutput = output[i];
+                direction = i;
             }
         }
-        switch (highestOutput) {
+
+        switch (direction) {
             case 0:
                 return Action.NORTH;
 
@@ -136,7 +137,7 @@ public class SnakeAIAgent extends SnakeAgent {
             case 2:
                 return Action.EAST;
 
-            case 4:
+            case 3:
                 return Action.WEST;
 
             default:
@@ -151,6 +152,11 @@ public class SnakeAIAgent extends SnakeAgent {
         Cell e = perception.getE();
         Cell w = perception.getW();
         Food food = perception.getFood();
+
+        if(food == null){
+            //TODO NULL pointer exception :O
+           return;
+        }
 
         int foodLine = food.getCell().getLine();
         int foodColumn = food.getCell().getColumn();
@@ -167,49 +173,49 @@ public class SnakeAIAgent extends SnakeAgent {
          * inputs 6 = foodE
          * inputs 7 = foodW*/
 
-        if (!n.hasTail() && !n.hasAgent() && n != null) {
+        if ( n != null && !n.hasTail() && !n.hasAgent() ) {
             inputs[0] = INPUTS_ONE;
         } else {
             inputs[0] = INPUTS_CERO;
         }
 
-        if (!s.hasTail() && !s.hasAgent() && s != null) {
+        if (s != null && !s.hasTail() && !s.hasAgent()) {
             inputs[1] = INPUTS_ONE;
         } else {
             inputs[1] = INPUTS_CERO;
         }
 
-        if (!e.hasTail() && !e.hasAgent() && e != null) {
+        if (e != null && !e.hasTail() && !e.hasAgent() ) {
             inputs[2] = INPUTS_ONE;
         } else {
             inputs[2] = INPUTS_CERO;
         }
 
-        if (!w.hasTail() && !w.hasAgent() && w != null) {
+        if (w != null && !w.hasTail() && !w.hasAgent()) {
             inputs[3] = INPUTS_ONE;
         } else {
             inputs[3] = INPUTS_CERO;
         }
 
-        if (foodLine < snakeLine) {
+        if (foodLine <= snakeLine) {
             inputs[4] = INPUTS_ONE;
         } else {
             inputs[4] = INPUTS_CERO;
         }
 
-        if (foodLine > snakeLine) {
+        if (foodLine >= snakeLine) {
             inputs[5] = INPUTS_ONE;
         } else {
             inputs[5] = INPUTS_CERO;
         }
 
-        if (foodColumn > snakeColumn) {
+        if (foodColumn >= snakeColumn) {
             inputs[6] = INPUTS_ONE;
         } else {
             inputs[6] = INPUTS_CERO;
         }
 
-        if (foodColumn < snakeColumn) {
+        if (foodColumn <= snakeColumn) {
             inputs[7] = INPUTS_ONE;
         } else {
             inputs[7] = INPUTS_CERO;

@@ -9,10 +9,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SnakeProblem implements Problem<SnakeIndividual> {
-    private static final int NUM_NN_INPUTS = 8; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
-    private static final int NUM_NN_OUTPUTS = 4; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
-    private static final int GENOME_SIZE = 100; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
-    final public int numOutputs;
+    public static final int NUM_NN_INPUTS = 9; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
+    public static final int NUM_NN_OUTPUTS = 4; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
+    public static final int GENOME_SIZE = 134; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
+    final private int numOutputs;
     final private int environmentSize;
     final private int maxIterations;
     final private int numInputs;
@@ -29,10 +29,10 @@ public class SnakeProblem implements Problem<SnakeIndividual> {
         this.numOutputs = NUM_NN_OUTPUTS;
         this.numEnvironmentRuns = numEnvironmentRuns;
 
-        environment = new Environment(
-                environmentSize,
-                maxIterations);
+        environment = new Environment(environmentSize, maxIterations);
     }
+
+
 
     // MODIFY IF YOU DEFINE OTHER PARAMETERS
     public static SnakeProblem buildProblemFromFile(File file) throws IOException {
@@ -63,7 +63,7 @@ public class SnakeProblem implements Problem<SnakeIndividual> {
 
     @Override
     public SnakeIndividual getNewIndividual() {
-        return new SnakeIndividual(this, GENOME_SIZE /*TODO?*/);
+        return new SnakeIndividual(this, GENOME_SIZE);
     }
 
     public Environment getEnvironment() {
@@ -98,4 +98,27 @@ public class SnakeProblem implements Problem<SnakeIndividual> {
         return sb.toString();
     }
 
+    public int getNumOutputs() {
+        return numOutputs;
+    }
+
+    public int getEnvironmentSize() {
+        return environmentSize;
+    }
+
+    public int getMaxIterations() {
+        return maxIterations;
+    }
+
+    public int getNumInputs() {
+        return numInputs;
+    }
+
+    public int getNumHiddenUnits() {
+        return numHiddenUnits;
+    }
+
+    public int getNumEnvironmentRuns() {
+        return numEnvironmentRuns;
+    }
 }

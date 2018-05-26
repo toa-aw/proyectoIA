@@ -1,5 +1,7 @@
 package snake;
 
+import snake.snakeAI.SnakeProblem;
+import snake.snakeAI.nn.SnakeAIAgent;
 import snake.snakeAdhoc.SnakeAdhocAgent;
 import snake.snakeRandom.SnakeRandomAgent;
 
@@ -14,13 +16,12 @@ public class Environment {
     private final Cell[][] grid;
     private final List<SnakeAgent> agents;
     private final int maxIterations;
+
     //listeners
     private final ArrayList<EnvironmentListener> listeners = new ArrayList<>();
     private Food food;
 
-    public Environment(
-            int size,
-            int maxIterations) {
+    public Environment(int size, int maxIterations) {
 
         this.maxIterations = maxIterations;
 
@@ -33,27 +34,69 @@ public class Environment {
 
         this.agents = new ArrayList<>();
         this.random = new Random();
+
+    }
+
+    public SnakeAIAgent getSnakeAI (){
+        for (SnakeAgent a : agents) {
+            if (a instanceof SnakeAIAgent) {
+                return (SnakeAIAgent) a;
+            }
+        }
+        return null;
+    }
+
+    public List<SnakeAgent> getAgents() {
+        return agents;
     }
 
     public void initialize(int seed) {
         random.setSeed(seed);
+
+        reset();
+
         placeAgents();
         placeFood();
 
+        if(food == null){
+            int i = 1;
+        }
     }
+
+    private void reset() {
+        for (SnakeAgent agent :
+                agents) {
+            for (Tail tail: agent.getTails()) {
+                tail.getCell().setTail(null);
+            }
+
+            agent.getTails().clear();
+            agent.getCell().setAgent(null);
+            this.getFoodCell().setFood(null);
+        }
+        agents.clear();
+    }
+
 
     public void reload() {
         placeFood();
     }
     private void placeAgents() {
-        Cell agentCell = grid[random.nextInt(grid.length)][random.nextInt(grid.length)];
-        SnakeRandomAgent snakeRandomAgent = new SnakeRandomAgent(agentCell, Color.GREEN);
-        agents.add(snakeRandomAgent);
+        Cell agentCell =  grid[random.nextInt(grid.length)][random.nextInt(grid.length)];
+//        SnakeRandomAgent snakeRandomAgent = new SnakeRandomAgent(agentCell, Color.GREEN);
+//        agents.add(snakeRandomAgent);
 
 //        SnakeAdhocAgent snakeAdhocAgent1 = new SnakeAdhocAgent(agentCell, Color.BLACK);
 //        agents.add(snakeAdhocAgent1);
 //        SnakeAdhocAgent snakeAdhocAgent2 = new SnakeAdhocAgent(agentCell, Color.BLACK);
-//        agents.add(snakeAdhocAgent2);
+//
+        SnakeAIAgent snakeAIAgent = new SnakeAIAgent(agentCell, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS);
+        agents.add(snakeAIAgent);
+    }
+
+
+    public Cell[][] getGrid() {
+        return grid;
     }
 
     private void placeFood() {
@@ -80,6 +123,20 @@ public class Environment {
                 fireUpdatedEnvironment();
             }
         }
+    }
+
+    public SnakeBehaviour simulateHeadless() {
+        for (int i = 0; i < maxIterations; i++) {
+            if(agents.get(0).died){
+                break;
+            }
+            for (SnakeAgent agent : agents) {
+                agent.act(this);
+            }
+        }
+
+        return new SnakeBehaviour(agents.get(0).getNumComida(), agents.get(0).getNumIteraciones());
+
     }
 
     public int getSize() {

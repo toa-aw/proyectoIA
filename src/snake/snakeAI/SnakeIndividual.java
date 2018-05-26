@@ -1,48 +1,60 @@
 package snake.snakeAI;
 
+import snake.Cell;
+import snake.Environment;
+import snake.SnakeAgent;
+import snake.SnakeBehaviour;
 import snake.snakeAI.ga.RealVectorIndividual;
+import snake.snakeAI.nn.SnakeAIAgent;
+
+import java.util.Random;
 
 public class SnakeIndividual extends RealVectorIndividual<SnakeProblem, SnakeIndividual> {
 
-    private int numberOfMovements;
-    private int amountOfFoodEaten;
+    private double somaComidas = 0;
+    private double somaIteracoes = 0;
 
-    public SnakeIndividual(SnakeProblem problem, int size /*TODO?*/) {
+    public SnakeIndividual(SnakeProblem problem, int size) {
         super(problem, size);
-        //TODO?
     }
 
     public SnakeIndividual(SnakeIndividual original) {
         super(original);
-        this.amountOfFoodEaten = original.getAmountOfFoodEaten();
-        this.numberOfMovements = original.getNumberOfMovements();
+        somaComidas = original.somaComidas;
+        somaIteracoes = original.somaIteracoes;
 
     }
 
-    public int getNumberOfMovements() {
-        return numberOfMovements;
-    }
-
-    public int getAmountOfFoodEaten() {
-        return amountOfFoodEaten;
-    }
 
     @Override
     public double computeFitness() {
-        double fitness = 0;
+        //para cada simulaccion (utilizar la var de iteraciones como seed)
+        //ir al genoma e buscar el peso de las sinapses y colocarlos red neuronal
+        //mandar a la serpiente a decidir
+        //colocar los inputs con los vlaors percepcionados
 
-        if(this.numberOfMovements > 0){
-            fitness += this.numberOfMovements;
-        }
-        if(this.amountOfFoodEaten > 0){
-           fitness += amountOfFoodEaten * 10;
+        //mandar lla cobra a iterar maximo de x veces
+        //recoge las estatisticas
+
+
+
+        for (int i = 0; i < problem.getNumEvironmentSimulations(); i++) {
+            problem.getEnvironment().initialize(i);
+            problem.getEnvironment().getSnakeAI().setWeights(genome);
+            SnakeBehaviour snakeBehaviour = problem.getEnvironment().simulateHeadless();
+//            environmentUpdated();
+//            environment.simulate();
+            somaComidas += snakeBehaviour.getComidas();
+            somaIteracoes += snakeBehaviour.getIteracoes();
+            snakeBehaviour.setComidas(0);
+            snakeBehaviour.setIteracoes(0);
         }
 
+        somaComidas = somaComidas/problem.getNumEvironmentSimulations();
+        somaIteracoes = somaIteracoes/problem.getNumEvironmentSimulations();
+
+        fitness = somaComidas*10 + somaIteracoes;
         return fitness;
-    }
-
-    public double[] getGenome() {
-        return this.genome;
     }
 
     @Override

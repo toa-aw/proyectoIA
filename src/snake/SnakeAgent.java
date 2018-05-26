@@ -8,6 +8,9 @@ public abstract class SnakeAgent {
     protected Cell cell;
     protected Color color;
     protected LinkedList<Tail> tails;
+    protected int numIteraciones = 0;
+    protected  int numComida = 0;
+    protected boolean died = false;
 
     public SnakeAgent(Cell cell, Color color) {
         this.cell = cell;
@@ -20,6 +23,9 @@ public abstract class SnakeAgent {
 
     public void act(Environment environment) {
         Perception perception = buildPerception(environment);
+        if(perception.getFood() == null){
+            int i = 1;
+        }
         Action action = decide(perception);
         execute(action, environment);
     }
@@ -31,6 +37,14 @@ public abstract class SnakeAgent {
                 environment.getEastCell(cell),
                 environment.getWestCell(cell),
                 environment.getFoodCell().getFood());
+    }
+
+    public int getNumIteraciones() {
+        return numIteraciones;
+    }
+
+    public int getNumComida() {
+        return numComida;
     }
 
     protected void execute(Action action, Environment environment) {
@@ -50,8 +64,14 @@ public abstract class SnakeAgent {
         if (nextCell != null && !nextCell.hasAgent()) {
             if (nextCell.hastFood()) {
                 environment.reload();
+                numComida++;
+
             }
             setCell(nextCell);
+            numIteraciones++;
+        }
+        else{
+            died = true;
         }
     }
 

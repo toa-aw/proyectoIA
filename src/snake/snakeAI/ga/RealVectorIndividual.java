@@ -4,14 +4,13 @@ import snake.Environment;
 
 public abstract class RealVectorIndividual<P extends Problem, I extends RealVectorIndividual> extends Individual<P, I> {
 
-    protected double [] genome;
+    protected  double [] genome;
     public RealVectorIndividual(P problem, int size) {
         super(problem);
 
         this.genome = new double[size];
-        //es necesaria una probabilidad?!
         for (int i = 0; i < size; i++) {
-            setGene(i,Environment.random.nextDouble());
+            genome[i] = Environment.random.nextDouble()*2-1;
         }
     }
 
