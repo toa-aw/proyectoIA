@@ -65,10 +65,18 @@ public class SnakeExperimentsFactory extends ExperimentsFactory {
 
         //MUTATION
         double mutationProbability = Double.parseDouble(getParameterValue("Mutation probability"));
+        double delta = Double.parseDouble(getParameterValue("Delta"));
         if (getParameterValue("Mutation").equals("uniform_distribution")) {
             //TODO OTHER PARAMETERS TO YOUR MUTATION OPERATOR, IF THEY EXIST, ARE FETCHED HERE
-            mutation = new MutationMUTATION_NAME<>(mutationProbability /*TODO COMPLETE?*/);
+            mutation = new MutationUniform<>(mutationProbability);
         }
+        if (getParameterValue("Mutation").equals("gaussian_distribution")) {
+            mutation = new MutationGaussian<>(mutationProbability);
+        }
+        if (getParameterValue("Mutation").equals("normal_distribution")) {
+            mutation = new MutationNormal<>(mutationProbability, delta);
+        }
+
 
         //PROBLEM 
         problem = SnakeProblem.buildProblemFromFile(new File(getParameterValue("Problem file")));

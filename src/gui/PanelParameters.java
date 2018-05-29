@@ -24,6 +24,7 @@ public class PanelParameters extends PanelAtributesValue {
     public static final String TOURNAMENT_SIZE = "4";
     public static final String PROB_RECOMBINATION = "0.7";
     public static final String PROB_MUTATION = "0.7";
+    public static final String DELTA = "0.5";
 
     JTextField textFieldSeed = new JTextField(SEED, TEXT_FIELD_LENGHT);
     JTextField textFieldN = new JTextField(POPULATION_SIZE, TEXT_FIELD_LENGHT);
@@ -35,6 +36,9 @@ public class PanelParameters extends PanelAtributesValue {
     JComboBox comboBoxRecombinationMethods = new JComboBox(recombinationMethods);
     JTextField textFieldProbRecombination = new JTextField(PROB_RECOMBINATION, TEXT_FIELD_LENGHT);
     JTextField textFieldProbMutation = new JTextField(PROB_MUTATION, TEXT_FIELD_LENGHT);
+    String[] mutationMethods = {"Normal", "Gaussian", "Uniform"};
+    JComboBox comboBoxMutationMethods = new JComboBox(mutationMethods);
+    JTextField textFieldDelta = new JTextField(DELTA, TEXT_FIELD_LENGHT);
     //TODO - MORE PARAMETERS?
 
     public PanelParameters() {
@@ -66,8 +70,16 @@ public class PanelParameters extends PanelAtributesValue {
         labels.add(new JLabel("Recombination prob.: "));
         valueComponents.add(textFieldProbRecombination);
 
+        labels.add(new JLabel("Mutation method: "));
+        valueComponents.add(comboBoxMutationMethods);
+        comboBoxMutationMethods.addActionListener(new JComboBoxMutationMethods_ActionAdapter(this));
+
         labels.add(new JLabel("Mutation prob.: "));
         valueComponents.add(textFieldProbMutation);
+
+        labels.add(new JLabel("Delta: "));
+        valueComponents.add(textFieldDelta);
+        //textFieldDelta.addKeyListener(new IntegerTextField_KeyAdapter(null));
 
         //TODO - MORE PARAMETERS?
         configure();
@@ -75,6 +87,10 @@ public class PanelParameters extends PanelAtributesValue {
 
     public void actionPerformedSelectionMethods(ActionEvent e) {
         textFieldTournamentSize.setEnabled(comboBoxSelectionMethods.getSelectedIndex() == 0);
+    }
+
+    public void actionPerformedMutationMethods(ActionEvent e) {
+        textFieldDelta.setEnabled(comboBoxMutationMethods.getSelectedIndex() == 0);
     }
 
     public SelectionMethod<SnakeIndividual, SnakeProblem> getSelectionMethod() {
@@ -108,8 +124,16 @@ public class PanelParameters extends PanelAtributesValue {
 
     public Mutation<SnakeIndividual> getMutationMethod() {
         double mutationProbability = Double.parseDouble(textFieldProbMutation.getText());
-        //TODO
-        return new MutationMUTATION_NAME<>(mutationProbability/*TODO?*/);
+        double delta = Double.parseDouble(textFieldDelta.getText());
+        switch (comboBoxMutationMethods.getSelectedIndex()){
+            case 0:
+                return new MutationNormal<>(mutationProbability, delta);
+            case 1:
+                return new MutationGaussian<>(mutationProbability);
+            case 2:
+                return new MutationUniform<>(mutationProbability);
+        }
+        return null;
     }
 }
 
@@ -124,6 +148,21 @@ class JComboBoxSelectionMethods_ActionAdapter implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         adaptee.actionPerformedSelectionMethods(e);
+    }
+}
+
+
+class JComboBoxMutationMethods_ActionAdapter implements ActionListener {
+
+    final private PanelParameters adaptee;
+
+    JComboBoxMutationMethods_ActionAdapter(PanelParameters adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        adaptee.actionPerformedMutationMethods(e);
     }
 }
 
