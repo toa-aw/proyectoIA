@@ -61,7 +61,15 @@ public abstract class SnakeAgent {
         if (nextCell != null && !nextCell.hasAgent() && !nextCell.hasTail()) {
             if (nextCell.hastFood()) {
                 environment.reload();
+                Tail tail = new Tail(this, nextCell);
+                this.tails.add(tail);
                 numComida++;
+                }else if (!tails.isEmpty()) {
+                Tail tail = new Tail(this, nextCell);
+                this.tails.get(0).setCell(null);
+                this.tails.remove();
+                //this.cell.setTail(tail);
+                this.tails.add(tail);
             }
             setCell(nextCell);
             numIteraciones++;
@@ -80,23 +88,19 @@ public abstract class SnakeAgent {
     public void setCell(Cell newCell) {
         if (this.cell != null) {
             this.cell.setAgent(null);
+//            this.cell.setFood(null);
         }
         Cell aux = this.cell;
         this.cell = newCell;
 
         if (newCell != null) {
-            if (aux.hastFood()) {
-                Tail tail = new Tail(this, aux);
-                //newCell.setTail(tail);
-                this.tails.add(tail);
-                aux.setFood(null);
-            } else if (!tails.isEmpty()) {
-                Tail tail = new Tail(this, aux);
-                this.tails.get(0).setCell(null);
-                this.tails.remove();
-                //this.cell.setTail(tail);
-                this.tails.add(tail);
-            }
+//            if (aux.hastFood()) {
+////                this.cell.setFood(null);
+//                Tail tail = new Tail(this, aux);
+////                newCell.setTail(tail);
+//                this.tails.add(tail);
+//            } else
+
             newCell.setAgent(this);
         }
     }

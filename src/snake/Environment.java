@@ -65,7 +65,11 @@ public class Environment {
         random.setSeed(seed);
         reset();
         placeAgents();
-        placeFood();
+        if (food == null){
+            placeFood();
+        }else{
+            moveFood();
+        }
     }
 
     private void reset() {
@@ -75,16 +79,22 @@ public class Environment {
             }
 
             agent.getTails().clear();
+            food.getCell().setFood(null);
+            food = null;
             agent.setCell(null);
-            this.food.setCell(null);
         }
         agents.clear();
     }
 
 
     public void reload() {
-        placeFood();
+        if (food == null){
+            placeFood();
+        }else{
+            moveFood();
+        }
     }
+
     private void placeAgents() {
         Cell agentCell =  grid[random.nextInt(grid.length)][random.nextInt(grid.length)];
 //        SnakeRandomAgent snakeRandomAgent = new SnakeRandomAgent(agentCell, Color.GREEN);
@@ -93,6 +103,7 @@ public class Environment {
 //        SnakeAdhocAgent snakeAdhocAgent1 = new SnakeAdhocAgent(agentCell, Color.BLACK);
 //        agents.add(snakeAdhocAgent1);
 //        SnakeAdhocAgent snakeAdhocAgent2 = new SnakeAdhocAgent(agentCell, Color.BLACK);
+//        agents.add(snakeAdhocAgent2);
 //
 
         SnakeAIAgent snakeAIAgent1 = new SnakeAIAgent(agentCell, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS);
@@ -109,9 +120,6 @@ public class Environment {
 
     private void placeFood() {
         boolean foodIsSet = false;
-//        if(food != null) {
-//            foodIsSet = true;
-//        }
         while (!foodIsSet) {
             Cell cellAux = grid[random.nextInt(grid.length)][random.nextInt(grid.length)];
             if (!cellAux.hasAgent() && !cellAux.hasTail()) {
@@ -121,6 +129,19 @@ public class Environment {
         }
 
     }
+
+    public void moveFood()
+    {
+        boolean foodIsSet = false;
+        while (!foodIsSet) {
+            Cell cellAux = grid[random.nextInt(grid.length)][random.nextInt(grid.length)];
+            if (!cellAux.hasAgent() && !cellAux.hasTail()) {
+                food.setCell(cellAux);
+                foodIsSet = true;
+            }
+        }
+    }
+
 
     private void addTail(SnakeAgent agent) {
         Tail tailCell = new Tail(agent, agent.cell);

@@ -23,9 +23,6 @@ public class Cell {
         return column;
     }
 
-    public SnakeAgent getAgent() {
-        return agent;
-    }
 
     public void setAgent(SnakeAgent agent) {
         this.agent = agent;
@@ -35,16 +32,20 @@ public class Cell {
         return agent != null;
     }
 
-    public Food getFood() {
-        return food;
-    }
-
     public void setFood(Food food) {
-        this.food = food;
+            this.food = food;
     }
 
     public boolean hastFood() {
         return food != null;
+    }
+
+    public boolean hasTail() {
+        return tail != null;
+    }
+
+    public void setTail(Tail tail) {
+        this.tail = tail;
     }
 
     public Color getColor() {
@@ -57,13 +58,5 @@ public class Cell {
         } else {
             return Cell.COLOR;
         }
-    }
-
-    public boolean hasTail() {
-        return tail != null;
-    }
-
-    public void setTail(Tail tail) {
-        this.tail = tail;
     }
 }
