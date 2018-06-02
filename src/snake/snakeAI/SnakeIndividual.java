@@ -7,12 +7,15 @@ import snake.SnakeBehaviour;
 import snake.snakeAI.ga.RealVectorIndividual;
 import snake.snakeAI.nn.SnakeAIAgent;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class SnakeIndividual extends RealVectorIndividual<SnakeProblem, SnakeIndividual> {
 
-    private double somaComidas = 0;
-    private double somaIteracoes = 0;
+    private float somaComidas = 0;
+    private float somaIteracoes = 0;
 
     public SnakeIndividual(SnakeProblem problem, int size) {
         super(problem, size);
@@ -28,41 +31,44 @@ public class SnakeIndividual extends RealVectorIndividual<SnakeProblem, SnakeInd
 
     @Override
     public double computeFitness() {
-        //para cada simulaccion (utilizar la var de iteraciones como seed)
-        //ir al genoma e buscar el peso de las sinapses y colocarlos red neuronal
-        //mandar a la serpiente a decidir
-        //colocar los inputs con los vlaors percepcionados
+        int numEvironmentSimulations = problem.getNumEvironmentSimulations();
+        somaComidas = 0;
+        somaIteracoes = 0;
+        List<SnakeAIAgent> listAI;
 
-        //mandar lla cobra a iterar maximo de x veces
-        //recoge las estatisticas
-
-
-
-        for (int i = 0; i < problem.getNumEvironmentSimulations(); i++) {
+        for (int i = 0; i < numEvironmentSimulations; i++) {
             problem.getEnvironment().initialize(i);
+
+//            listAI = problem.getEnvironment().getSnakesAI();
+//            for (SnakeAIAgent aiAgent: listAI) {
+//                aiAgent.setWeights(genome);
+//            }
+
             problem.getEnvironment().getSnakeAI().setWeights(genome);
             SnakeBehaviour snakeBehaviour = problem.getEnvironment().simulateHeadless();
-//            environmentUpdated();
-//            environment.simulate();
             somaComidas += snakeBehaviour.getComidas();
             somaIteracoes += snakeBehaviour.getIteracoes();
-            snakeBehaviour.setComidas(0);
-            snakeBehaviour.setIteracoes(0);
         }
 
-        somaComidas = somaComidas/problem.getNumEvironmentSimulations();
-        somaIteracoes = somaIteracoes/problem.getNumEvironmentSimulations();
+        somaComidas = somaComidas/ numEvironmentSimulations;
+        somaIteracoes = somaIteracoes/ numEvironmentSimulations;
 
-        fitness = somaComidas*10 + somaIteracoes;
+        fitness = somaComidas*1000 + somaIteracoes;
         return fitness;
     }
+
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\nfitness: ");
         sb.append(fitness);
-        //TODO
+        sb.append("\nfood: ");
+        sb.append(somaComidas);
+        sb.append("\nmovements: ");
+        sb.append(somaIteracoes);
+        sb.append("\ngenome: ");
+        sb.append(Arrays.toString(genome));
         return sb.toString();
     }
 

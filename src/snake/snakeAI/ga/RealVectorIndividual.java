@@ -20,6 +20,10 @@ public abstract class RealVectorIndividual<P extends Problem, I extends RealVect
         System.arraycopy(original.genome, 0, this.genome, 0, this.getNumGenes());
     }
 
+    public double[] getGenome() {
+        return genome;
+    }
+
     @Override
     public int getNumGenes() {
         return this.genome.length;

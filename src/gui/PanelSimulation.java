@@ -2,12 +2,16 @@ package gui;
 
 import snake.Environment;
 import snake.EnvironmentListener;
+import snake.snakeAI.SnakeIndividual;
+import snake.snakeAI.nn.SnakeAIAgent;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PanelSimulation extends JPanel implements EnvironmentListener {
 
@@ -56,9 +60,19 @@ public class PanelSimulation extends JPanel implements EnvironmentListener {
             public Void doInBackground() {
 
                 int environmentSimulations = mainFrame.getProblem().getNumEvironmentSimulations();
+                SnakeIndividual bestInRun = mainFrame.getBestInRun();
+                List<SnakeAIAgent> listAI = new ArrayList<>();
+
                 for (int i = 0; i < environmentSimulations; i++) {
                     environment.initialize(i);
                     environmentUpdated();
+
+//                    if(!listAI.isEmpty()){
+//                        for (SnakeAIAgent aiAgent: listAI) {
+//                            aiAgent.setWeights(bestInRun.getGenome());
+//                        }
+//                    }
+                    environment.getSnakeAI().setWeights(bestInRun.getGenome());
                     environment.simulate();
                 }
                 return null;

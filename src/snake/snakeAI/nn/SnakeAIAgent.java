@@ -153,10 +153,10 @@ public class SnakeAIAgent extends SnakeAgent {
         Cell w = perception.getW();
         Food food = perception.getFood();
 
-        if(food == null){
-            //TODO NULL pointer exception :O
-           return;
-        }
+//        if(food == null){
+//            //TODO NULL pointer exception
+//            return;
+//        }
 
         int foodLine = food.getCell().getLine();
         int foodColumn = food.getCell().getColumn();

@@ -23,9 +23,6 @@ public abstract class SnakeAgent {
 
     public void act(Environment environment) {
         Perception perception = buildPerception(environment);
-        if(perception.getFood() == null){
-            int i = 1;
-        }
         Action action = decide(perception);
         execute(action, environment);
     }
@@ -36,7 +33,7 @@ public abstract class SnakeAgent {
                 environment.getSouthCell(cell),
                 environment.getEastCell(cell),
                 environment.getWestCell(cell),
-                environment.getFoodCell().getFood());
+                environment.getFood());
     }
 
     public int getNumIteraciones() {
@@ -61,11 +58,10 @@ public abstract class SnakeAgent {
             nextCell = environment.getEastCell(cell);
         }
 
-        if (nextCell != null && !nextCell.hasAgent()) {
+        if (nextCell != null && !nextCell.hasAgent() && !nextCell.hasTail()) {
             if (nextCell.hastFood()) {
                 environment.reload();
                 numComida++;
-
             }
             setCell(nextCell);
             numIteraciones++;
