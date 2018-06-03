@@ -79,10 +79,12 @@ public class Environment {
             }
 
             agent.getTails().clear();
-            food.getCell().setFood(null);
-            food = null;
             agent.setCell(null);
         }
+        if(food != null){
+            food.getCell().setFood(null);
+        }
+
         agents.clear();
     }
 
@@ -97,6 +99,10 @@ public class Environment {
 
     private void placeAgents() {
         Cell agentCell =  grid[random.nextInt(grid.length)][random.nextInt(grid.length)];
+        Cell agentCell2 = grid[random.nextInt(grid.length)][random.nextInt(grid.length)];
+        if(agentCell == agentCell2){
+            agentCell2 = grid[random.nextInt(grid.length)][random.nextInt(grid.length)];
+        }
 //        SnakeRandomAgent snakeRandomAgent = new SnakeRandomAgent(agentCell, Color.GREEN);
 //        agents.add(snakeRandomAgent);
 
@@ -109,8 +115,8 @@ public class Environment {
         SnakeAIAgent snakeAIAgent1 = new SnakeAIAgent(agentCell, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS);
         agents.add(snakeAIAgent1);
 
-//        SnakeAIAgent snakeAIAgent2 = new SnakeAIAgent(agentCell, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS);
-//        agents.add(snakeAIAgent2);
+        SnakeAIAgent snakeAIAgent2 = new SnakeAIAgent(agentCell2, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS);
+        agents.add(snakeAIAgent2);
     }
 
 
@@ -150,7 +156,7 @@ public class Environment {
 
     public void simulate() {
         for (int i = 0; i < maxIterations; i++) {
-            if(agents.get(0).died){
+            if(agents.get(0).died || agents.get(1).died){
                 break;
             }
             for (SnakeAgent agent : agents) {
@@ -162,7 +168,7 @@ public class Environment {
 
     public SnakeBehaviour simulateHeadless() {
         for (int i = 0; i < maxIterations; i++) {
-            if(agents.get(0).died){
+            if(agents.get(0).died || agents.get(1).died){
                 break;
             }
             for (SnakeAgent agent : agents) {

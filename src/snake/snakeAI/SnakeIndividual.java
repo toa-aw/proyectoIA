@@ -39,12 +39,12 @@ public class SnakeIndividual extends RealVectorIndividual<SnakeProblem, SnakeInd
         for (int i = 0; i < numEvironmentSimulations; i++) {
             problem.getEnvironment().initialize(i);
 
-//            listAI = problem.getEnvironment().getSnakesAI();
-//            for (SnakeAIAgent aiAgent: listAI) {
-//                aiAgent.setWeights(genome);
-//            }
+            listAI = problem.getEnvironment().getSnakesAI();
+            for (SnakeAIAgent aiAgent: listAI) {
+                aiAgent.setWeights(genome);
+            }
 
-            problem.getEnvironment().getSnakeAI().setWeights(genome);
+//            problem.getEnvironment().getSnakeAI().setWeights(genome);
             SnakeBehaviour snakeBehaviour = problem.getEnvironment().simulateHeadless();
             somaComidas += snakeBehaviour.getComidas();
             somaIteracoes += snakeBehaviour.getIteracoes();

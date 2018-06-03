@@ -58,6 +58,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
             t++;
             fireGenerationEnded(new GAEvent(this));
         }
+        int i = 0;
         fireRunEnded(new GAEvent(this));
         return bestInRun;
     }
