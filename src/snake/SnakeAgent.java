@@ -61,11 +61,11 @@ public abstract class SnakeAgent {
         if (nextCell != null && !nextCell.hasAgent() && !nextCell.hasTail()) {
             if (nextCell.hastFood()) {
                 environment.reload();
-                Tail tail = new Tail(this, nextCell);
+                Tail tail = new Tail(this, this.getCell(), color);
                 this.tails.add(tail);
                 numComida++;
                 }else if (!tails.isEmpty()) {
-                Tail tail = new Tail(this, nextCell);
+                Tail tail = new Tail(this, this.getCell(), color);
                 this.tails.get(0).setCell(null);
                 this.tails.remove();
                 //this.cell.setTail(tail);

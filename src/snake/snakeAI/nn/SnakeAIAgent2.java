@@ -1,11 +1,12 @@
 package snake.snakeAI.nn;
 
 import snake.*;
-import snake.snakeAI.ga.RealVectorIndividual;
 
 import java.awt.*;
 
-public class SnakeAIAgent extends SnakeAgent {
+import static java.lang.Math.abs;
+
+public class SnakeAIAgent2 extends SnakeAgent {
 
     final private int inputLayerSize;
     final private int hiddenLayerSize;
@@ -35,7 +36,7 @@ public class SnakeAIAgent extends SnakeAgent {
      */
     final private double[] output;
 
-    public SnakeAIAgent(Cell cell, int inputLayerSize, int hiddenLayerSize, int outputLayerSize, Color color) {
+    public SnakeAIAgent2(Cell cell, int inputLayerSize, int hiddenLayerSize, int outputLayerSize, Color color) {
         super(cell, color);
         this.inputLayerSize = inputLayerSize;
         this.hiddenLayerSize = hiddenLayerSize;
@@ -197,28 +198,29 @@ public class SnakeAIAgent extends SnakeAgent {
             inputs[3] = INPUTS_CERO;
         }
 
-        if (foodLine <= snakeLine) {
+        if (n.hastFood()) {
             inputs[4] = INPUTS_ONE;
         } else {
             inputs[4] = INPUTS_CERO;
         }
 
-        if (foodLine >= snakeLine) {
+        if ( s.hastFood()) {
             inputs[5] = INPUTS_ONE;
         } else {
             inputs[5] = INPUTS_CERO;
         }
 
-        if (foodColumn >= snakeColumn) {
+        if ( e.hastFood()) {
             inputs[6] = INPUTS_ONE;
         } else {
             inputs[6] = INPUTS_CERO;
         }
 
-        if (foodColumn <= snakeColumn) {
+        if ( w.hastFood()) {
             inputs[7] = INPUTS_ONE;
         } else {
             inputs[7] = INPUTS_CERO;
         }
+        inputs[8] = abs(snakeColumn - foodColumn) + abs(snakeLine - foodLine);
     }
 }

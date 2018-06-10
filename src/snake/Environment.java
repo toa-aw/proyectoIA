@@ -112,10 +112,10 @@ public class Environment {
 //        agents.add(snakeAdhocAgent2);
 //
 
-        SnakeAIAgent snakeAIAgent1 = new SnakeAIAgent(agentCell, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS);
+        SnakeAIAgent snakeAIAgent1 = new SnakeAIAgent(agentCell, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS, Color.cyan);
         agents.add(snakeAIAgent1);
 
-        SnakeAIAgent snakeAIAgent2 = new SnakeAIAgent(agentCell2, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS);
+        SnakeAIAgent snakeAIAgent2 = new SnakeAIAgent(agentCell2, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS, Color.green);
         agents.add(snakeAIAgent2);
     }
 
@@ -147,13 +147,6 @@ public class Environment {
             }
         }
     }
-
-
-    private void addTail(SnakeAgent agent) {
-        Tail tailCell = new Tail(agent, agent.cell);
-        agent.addTail(tailCell);
-    }
-
     public void simulate() {
         for (int i = 0; i < maxIterations; i++) {
             if(agents.get(0).died || agents.get(1).died){
@@ -175,9 +168,14 @@ public class Environment {
                 agent.act(this);
             }
         }
+//        ArrayList<SnakeBehaviour> snakeBehaviouList = new ArrayList<>();
+//
+//        for (SnakeAgent agent: agents) {
+//            snakeBehaviouList.add(new SnakeBehaviour(agent.getNumComida(), agent.getNumIteraciones()));
+//        }
+//        return snakeBehaviouList;
 
         return new SnakeBehaviour(agents.get(0).getNumComida(), agents.get(0).getNumIteraciones());
-
     }
 
     public Food getFood() {

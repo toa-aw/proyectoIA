@@ -23,14 +23,7 @@ public class GeneticAlgorithm<I extends Individual, P extends Problem<I>> {
     private boolean stopped;
     private I bestInRun;
 
-    public GeneticAlgorithm(
-            int populationSize,
-            int maxGenerations,
-            SelectionMethod<I, P> selection,
-            Recombination<I> recombination,
-            Mutation<I> mutation,
-            Random rand) {
-
+    public GeneticAlgorithm(int populationSize, int maxGenerations, SelectionMethod<I, P> selection, Recombination<I> recombination, Mutation<I> mutation, Random rand) {
         random = rand;
         this.populationSize = populationSize;
         this.maxGenerations = maxGenerations;

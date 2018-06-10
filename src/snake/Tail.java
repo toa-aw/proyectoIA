@@ -7,9 +7,9 @@ public class Tail {
     private Cell cell;
     private Color color;
 
-    public Tail(SnakeAgent snakeAgent, Cell cell) {
+    public Tail(SnakeAgent snakeAgent, Cell cell, Color color) {
         this.snakeAgent = snakeAgent;
-        this.color = Color.lightGray ;
+        this.color = color.brighter().brighter().brighter().brighter().brighter();
         this.cell = cell;
         if (cell != null)
             this.cell.setTail(this);

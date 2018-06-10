@@ -10,8 +10,9 @@ import java.util.List;
 
 public class SnakeProblem implements Problem<SnakeIndividual> {
     public static final int NUM_NN_INPUTS = 9; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
+    public static final int NUM_NN_INPUTS2 = 10;
     public static final int NUM_NN_OUTPUTS = 4; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
-    public static final int GENOME_SIZE = 134; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
+    public static final int GENOME_SIZE = 268; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
     final private int numOutputs;
     final private int environmentSize;
     final private int maxIterations;

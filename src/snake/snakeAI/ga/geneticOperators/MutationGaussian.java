@@ -28,7 +28,7 @@ public class MutationGaussian<I extends RealVectorIndividual> extends Mutation<I
         for (int i = 0; i < ind.getNumGenes(); i++) {
             if (GeneticAlgorithm.random.nextDouble() < probability) {
                 double alelo = ind.getGene(i);
-                alelo = alelo + sd * GeneticAlgorithm.random.nextGaussian();
+                alelo = alelo + 0.5 * GeneticAlgorithm.random.nextGaussian();
                 ind.setGene(i, alelo);
             }
         }
