@@ -9,10 +9,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SnakeProblem implements Problem<SnakeIndividual> {
-    public static final int NUM_NN_INPUTS = 9; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
+    public static final int NUM_NN_INPUTS = 9;
     public static final int NUM_NN_INPUTS2 = 10;
-    public static final int NUM_NN_OUTPUTS = 4; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
-    public static final int GENOME_SIZE = 268; // TODO THIS IS A FAKE NUMBER; PLEASE ADAPT TO YOUR CASE
+    public static final int NUM_NN_OUTPUTS = 4;
+    public static final int GENOME_SIZE = 134; // TODO change this number 134(1 agent or homo) 268 for (2 agents hetere)
     final private int numOutputs;
     final private int environmentSize;
     final private int maxIterations;

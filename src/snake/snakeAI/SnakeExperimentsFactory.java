@@ -60,14 +60,12 @@ public class SnakeExperimentsFactory extends ExperimentsFactory {
                 recombination = new RecombinationUniform<>(recombinationProbability);
         }
 
-        // TODO YOU MAY ADD NEW PARAMETERS (eg., NEW GENETIC OPERATORS, ...).
 
 
         //MUTATION
         double mutationProbability = Double.parseDouble(getParameterValue("Mutation probability"));
         double delta = Double.parseDouble(getParameterValue("Delta"));
         if (getParameterValue("Mutation").equals("uniform_distribution")) {
-            //TODO OTHER PARAMETERS TO YOUR MUTATION OPERATOR, IF THEY EXIST, ARE FETCHED HERE
             mutation = new MutationUniform<>(mutationProbability);
         }
         if (getParameterValue("Mutation").equals("gaussian_distribution")) {

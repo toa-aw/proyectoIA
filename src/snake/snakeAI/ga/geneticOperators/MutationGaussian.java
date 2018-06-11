@@ -7,9 +7,8 @@ import snake.snakeAI.ga.utils.Maths;
 //PLEASE, MODIFY THE CLASS NAME
 public class MutationGaussian<I extends RealVectorIndividual> extends Mutation<I> {
 
-    public MutationGaussian(double probability /*TODO?*/) {
+    public MutationGaussian(double probability ) {
         super(probability);
-        // TODO
     }
 
     @Override
@@ -36,6 +35,6 @@ public class MutationGaussian<I extends RealVectorIndividual> extends Mutation<I
 
     @Override
     public String toString() {
-        return "Gaussian Mutation (" + probability /* + TODO?*/;
+        return "Gaussian Mutation (" + probability ;
     }
 }

@@ -103,6 +103,7 @@ public class Environment {
         if(agentCell == agentCell2){
             agentCell2 = grid[random.nextInt(grid.length)][random.nextInt(grid.length)];
         }
+        //TODO: Coment/ Uncoment for number of snakes and type of snake.
 //        SnakeRandomAgent snakeRandomAgent = new SnakeRandomAgent(agentCell, Color.GREEN);
 //        agents.add(snakeRandomAgent);
 
@@ -112,11 +113,11 @@ public class Environment {
 //        agents.add(snakeAdhocAgent2);
 //
 
-        SnakeAIAgent snakeAIAgent1 = new SnakeAIAgent(agentCell, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS, Color.cyan);
+        SnakeAIAgent snakeAIAgent1 = new SnakeAIAgent(agentCell, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS, Color.BLUE);
         agents.add(snakeAIAgent1);
 
-        SnakeAIAgent snakeAIAgent2 = new SnakeAIAgent(agentCell2, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS, Color.green);
-        agents.add(snakeAIAgent2);
+//        SnakeAIAgent snakeAIAgent2 = new SnakeAIAgent(agentCell2, SnakeProblem.NUM_NN_INPUTS, 10, SnakeProblem.NUM_NN_OUTPUTS, Color.MAGENTA);
+//        agents.add(snakeAIAgent2);
     }
 
 
@@ -148,8 +149,8 @@ public class Environment {
         }
     }
     public void simulate() {
-        for (int i = 0; i < maxIterations; i++) {
-            if(agents.get(0).died || agents.get(1).died){
+        for (int i = 0; i < 1000; i++) {
+            if(agents.get(0).died){
                 break;
             }
             for (SnakeAgent agent : agents) {
@@ -161,20 +162,23 @@ public class Environment {
 
     public SnakeBehaviour simulateHeadless() {
         for (int i = 0; i < maxIterations; i++) {
-            if(agents.get(0).died || agents.get(1).died){
+            if(agents.get(0).died ){
                 break;
             }
             for (SnakeAgent agent : agents) {
                 agent.act(this);
             }
         }
-//        ArrayList<SnakeBehaviour> snakeBehaviouList = new ArrayList<>();
-//
-//        for (SnakeAgent agent: agents) {
-//            snakeBehaviouList.add(new SnakeBehaviour(agent.getNumComida(), agent.getNumIteraciones()));
+        //TODO coment/ uncoment for 1 or two snakes
+//        int comidas = 0;
+//        int movimientos = 0;
+//        for (SnakeAgent agent : agents) {
+//            comidas += agent.getNumComida();
+//            movimientos += agent.getNumIteraciones();
 //        }
-//        return snakeBehaviouList;
-
+//        comidas = comidas/2;
+//        movimientos = movimientos/2;
+        //return new snakeBehaviour(comidas, movimientos)
         return new SnakeBehaviour(agents.get(0).getNumComida(), agents.get(0).getNumIteraciones());
     }
 

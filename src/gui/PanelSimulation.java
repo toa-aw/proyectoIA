@@ -61,26 +61,29 @@ public class PanelSimulation extends JPanel implements EnvironmentListener {
 
                 int environmentSimulations = mainFrame.getProblem().getNumEvironmentSimulations();
                 SnakeIndividual bestInRun = mainFrame.getBestInRun();
-                List<SnakeAIAgent> listAI = new ArrayList<>();
-                double[] genome = bestInRun.getGenome();
-                double[] genome1 = new double[(genome.length+1)/2];
-                double[] genome2 = new double[(genome.length+1)/2];
+                List<SnakeAIAgent> listAI;
+                //TODO coment/uncoment for IA agents (heterogeneus)
+//                double[] genome = bestInRun.getGenome();
+//                double[] genome1 = new double[(genome.length+1)/2];
+//                double[] genome2 = new double[(genome.length+1)/2];
 
                 for (int i = 0; i < environmentSimulations; i++) {
                     environment.initialize(i);
                     environmentUpdated();
 
                     listAI = environment.getSnakesAI();
+                    //TODO coment/uncoment for IA agents
                     if(!listAI.isEmpty()){
-//                        for (SnakeAIAgent aiAgent: listAI) {
-//                            aiAgent.setWeights(bestInRun.getGenome());
-//                        }
-                        System.arraycopy(genome, 0, genome1, 0, genome1.length);
-                        System.arraycopy(genome, genome1.length, genome2, 0, genome2.length);
-                        listAI.get(0).setWeights(genome1);
-                        listAI.get(1).setWeights(genome2);
+                        //TODO coment/uncoment for one IA agent or two homogeneus
+                        for (SnakeAIAgent aiAgent: listAI) {
+                            aiAgent.setWeights(bestInRun.getGenome());
+                        }
+                        //TODO coment/uncoment for IA agents (heterogeneus)
+//                        System.arraycopy(genome, 0, genome1, 0, genome1.length);
+//                        System.arraycopy(genome, genome1.length, genome2, 0, genome2.length);
+//                        listAI.get(0).setWeights(genome1);
+//                        listAI.get(1).setWeights(genome2);
                     }
-//                    environment.getSnakeAI().setWeights(bestInRun.getGenome());
                     environment.simulate();
                 }
                 return null;

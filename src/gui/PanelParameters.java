@@ -39,7 +39,6 @@ public class PanelParameters extends PanelAtributesValue {
     String[] mutationMethods = {"Normal", "Gaussian", "Uniform"};
     JComboBox comboBoxMutationMethods = new JComboBox(mutationMethods);
     JTextField textFieldDelta = new JTextField(DELTA, TEXT_FIELD_LENGHT);
-    //TODO - MORE PARAMETERS?
 
     public PanelParameters() {
         title = "Genetic algorithm parameters";
@@ -80,8 +79,6 @@ public class PanelParameters extends PanelAtributesValue {
         labels.add(new JLabel("Delta: "));
         valueComponents.add(textFieldDelta);
         //textFieldDelta.addKeyListener(new IntegerTextField_KeyAdapter(null));
-
-        //TODO - MORE PARAMETERS?
         configure();
     }
 

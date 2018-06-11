@@ -17,8 +17,6 @@ public class SnakeIndividual extends RealVectorIndividual<SnakeProblem, SnakeInd
     private float somaComidas = 0;
     private float somaIteracoes = 0;
 
-    private float somaComidas2 = 0;
-    private float somaIteracoes2 = 0;
 
     public SnakeIndividual(SnakeProblem problem, int size) {
         super(problem, size);
@@ -41,33 +39,29 @@ public class SnakeIndividual extends RealVectorIndividual<SnakeProblem, SnakeInd
 
         for (int i = 0; i < numEvironmentSimulations; i++) {
             problem.getEnvironment().initialize(i);
-
-            int length = genome.length;
-            double[] genome1 = new double[(length+1)/2];
-            double[] genome2 = new double[(length+1)/2];
-
-            System.arraycopy(genome, 0, genome1, 0, genome1.length);
-            System.arraycopy(genome, genome1.length, genome2, 0, genome2.length);
-
+            //TODO coment/uncoment for one agent or homo
             listAI = problem.getEnvironment().getSnakesAI();
-            listAI.get(0).setWeights(genome1);
-            listAI.get(1).setWeights(genome2);
-//            for (SnakeAIAgent aiAgent: listAI) {
-////                aiAgent.setWeights(genome);
-////            }
+            for (SnakeAIAgent aiAgent: listAI) {
+                aiAgent.setWeights(genome);
+            }
 
-            problem.getEnvironment().getSnakeAI().setWeights(genome);
+
+
+            //TODO coment/uncoment for two hetero agents
+//            int length = genome.length;
+//            double[] genome1 = new double[(length+1)/2];
+//            double[] genome2 = new double[(length+1)/2];
+//
+//            System.arraycopy(genome, 0, genome1, 0, genome1.length);
+//            System.arraycopy(genome, genome1.length, genome2, 0, genome2.length);
+//            listAI.get(0).setWeights(genome1);
+//            listAI.get(1).setWeights(genome2);
+
+
+
             SnakeBehaviour snakeBehaviour = problem.getEnvironment().simulateHeadless();
             somaComidas += snakeBehaviour.getComidas();
             somaIteracoes += snakeBehaviour.getIteracoes();
-
-//            ArrayList<SnakeBehaviour> snakeBehaviours = problem.getEnvironment().simulateHeadless();
-//            somaComidas = snakeBehaviours.get(0).getComidas();
-//            somaIteracoes = snakeBehaviours.get(0).getIteracoes();
-//
-//            somaComidas2 = snakeBehaviours.get(1).getComidas();
-//            somaIteracoes2 = snakeBehaviours.get(1).getIteracoes();
-
         }
 
         somaComidas = somaComidas/ numEvironmentSimulations;
@@ -80,7 +74,7 @@ public class SnakeIndividual extends RealVectorIndividual<SnakeProblem, SnakeInd
 //        float fitness2 = (somaComidas2*2000) + somaIteracoes2;
 //
 //        fitness = (fitness1+fitness2)/2 ;
-        fitness = (somaComidas*2000) + somaIteracoes;
+        fitness = (somaComidas*1500) + somaIteracoes;
         return fitness;
     }
 
